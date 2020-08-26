@@ -65,19 +65,19 @@ describe.only('User', () => {
         expect(a.strideLength).to.equal(userData.strideLength);
     })
 
-    // /**/it("should hold the properties of the au", () => {
+    /**/it("should have a dailyStepGoal", () => {
 
-    //     let a = new User(userData);
+        let a = new User(userData);
 
-    //     expect(a).to.equal()
-    // })
+        expect(a.dailyStepGoal).to.equal(userData.dailyStepGoal);
+    })
 
-    // /**/it("should hold the properties of the au", () => {
+    /**/it("should have friends", () => {
 
-    //     let a = new User(userData);
+        let a = new User(userData);
 
-    //     expect(a).to.equal()
-    // })
+        expect(a.friends).to.equal(userData.friends);
+    })
 
     // it.skip("should return the average of all of the users/' step goals", () => {
 
