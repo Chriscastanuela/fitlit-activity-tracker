@@ -79,10 +79,10 @@ describe.only('User', () => {
         expect(a.friends).to.equal(userData.friends);
     })
 
-    // it.skip("should return the average of all of the users/' step goals", () => {
+    it("should return the user's first name only", () => {
 
-    //     let a = new UserRepository(userData);
+        let a = new User(userData);
 
-    //     expect(a.avgStepGoalOfAllUsers()).to.equal(6666.666666666666667);
-    // })
+        expect(a.returnFirstName()).to.equal("Luisa");
+    })
 })
