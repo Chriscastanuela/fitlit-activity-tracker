@@ -4,6 +4,8 @@ class User {
         this.name = object.name;
         this.address = object.address;
         this.email = object.email;
+        this.strideLength = object.strideLength;
+        this.dailyStepGoal = object.dailyStepGoal;
     }
 }
 

@@ -58,12 +58,12 @@ describe.only('User', () => {
         expect(a.email).to.equal(userData.email);
     })
 
-    // /**/it("should hold the properties of the au", () => {
+    /**/it("should have a strideLength", () => {
 
-    //     let a = new User(userData);
+        let a = new User(userData);
 
-    //     expect(a).to.equal()
-    // })
+        expect(a.strideLength).to.equal(userData.strideLength);
+    })
 
     // /**/it("should hold the properties of the au", () => {
 
