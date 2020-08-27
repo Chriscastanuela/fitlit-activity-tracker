@@ -3,11 +3,11 @@ const expect = chai.expect;
 
 let Hydration = require("../classes/Hydration");
 let hydrationData = 
-    {
-      "userID": 1,
-      "date": "2019/06/15",
-      "numOunces": 1
-    };
+{
+    "userID": 1,
+    "date": "2019/06/15",
+    "numOunces": 1
+};
 
 describe.only('Hydration', () => {
     
