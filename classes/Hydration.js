@@ -1,18 +1,9 @@
 class Hydration {
-    constructor(hydrationData) {
-        this.hydrationData = hydrationData;
+    constructor(object) {
+        this.userID = object.userID;
+        this.date = object.date;
+        this.numOunces = object.numOunces;
     }
-    averageFlOzAllTime(userId) {
-        let userHydrationDataList = this.hydrationData.filter(hydrationObj => {
-            return hydrationObj.userID == userId;
-        })
-        let sum = userHydrationDataList.reduce((avg, object) => {
-            avg += object.numOunces;
-            return avg;
-        }, 0);
-        let average = sum / userHydrationDataList.length;
-        return average;
-    }
-}
+};
 
 module.exports = Hydration;
