@@ -11,14 +11,13 @@ class UserRepository {
         var sum = this.userObjects.reduce((avg, object) => {
 
             avg += object.dailyStepGoal;
-            console.log(avg);
             return avg;
 
         }, 0)
 
-        let avg = sum / this.userObjects.length;
+        let average = sum / this.userObjects.length;
 
-        return avg;
+        return average;
     }
 };
 
