@@ -1,5 +1,3 @@
-//global variables and queryselectors
-// let UserRepository = require("../classes/user-repository");
 
 var userGreeting = document.querySelector(".Hi-User");
 var userStepGoalDis = document.querySelector(".Step-Goals");
@@ -21,16 +19,6 @@ let userRepository = new UserRepository(userData);
 let currentUser = new User(userRepository.returnData(20))
 
 
-
-// function getRandomIndex(array) {
-//   return Math.floor(Math.random() * array.length);
-// }
-
-// function getRandomUser() {
-//   var newUser = userData[getRandomIndex(userData)];
-//   currentUser = new User(newUser);
-// }
-
 function displayNewUser() {
 userGreeting.innerHTML = `<p>Hello ${currentUser.returnFirstName()}!</p>`;
 userInfoCard.innerHTML = `<div class="userContainer">
@@ -44,8 +32,5 @@ userInfoCard.innerHTML = `<div class="userContainer">
 }
 
 window.onload = displayNewUser()
-
-//hydration functions
-
 
 console.log("Hello World");
