@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 let User = require("../classes/User");
 
-let userData = 
+let userData =
 {
     "id": 1,
     "name": "Luisa Hane",
@@ -18,7 +18,7 @@ let userData =
     ]
 };
 
-describe.only('User', () => {
+describe('User', () => {
 
     it('should be a function', function() {
         const a = new User(userData);
@@ -29,7 +29,7 @@ describe.only('User', () => {
         const a = new User(userData);
         expect(a).to.be.an.instanceof(User);
     });
-    
+
     /**/it("should have an id", () => {
 
         let a = new User(userData);

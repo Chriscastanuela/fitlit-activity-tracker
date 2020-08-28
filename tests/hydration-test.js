@@ -10,8 +10,8 @@ let hydrationData = [
     }
 ];
 
-describe.only('Hydration', () => {
-    
+describe('Hydration', () => {
+
     it('should be a function', function() {
         const a = new Hydration(hydrationData);
         expect(Hydration).to.be.a('function');
@@ -23,10 +23,9 @@ describe.only('Hydration', () => {
     });
 
     it("should be able to tell you how many ounces of water a user had on a given date", () => {
-        
+
         const a = new Hydration(hydrationData);
 
         expect(a.flOzOnAGivenDay("2019/06/15")).to.equal(1)
-        
     });
 });
