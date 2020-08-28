@@ -2,6 +2,13 @@ const chai = require("chai");
 const expect = chai.expect;
 
 let Hydration = require("../classes/Hydration");
+// let hydrationData = [
+//     {
+//         "userID": 1,
+//         "date": "2019/06/15",
+//         "numOunces": 1
+//     }
+// ];
 let hydrationData = [
     {
       "userID": 1,
@@ -60,7 +67,7 @@ describe('Hydration', () => {
     it("should be able to tell you how many ounces of water each day for the last week", () => {
         
         const a = new Hydration(hydrationData);
-  
+      
         expect(a.lastWeekOfWaterData()).to.deep.equal([
             {
                 "date": "2019/06/16",
@@ -91,5 +98,6 @@ describe('Hydration', () => {
                 "numOunces": 2
             }
         ]);
+        // expect(a.lastWeekOfWaterData()).to.deep.equal([3, 1, 1, 1, 1, 1, 2]); 
     });
 });
