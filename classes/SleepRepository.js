@@ -2,17 +2,17 @@ class SleepRepository {
     constructor(sleepData) {
         this.sleepData = sleepData;
     }
-    avgStepGoalOfAllUsers() {
-        var sum = this.userObjects.reduce((avg, object) => {
+    getTotalSleepQuality() {
+        var sum = this.sleepData.reduce((avg, object) => {
 
-            avg += object.dailyStepGoal;
+            avg += object.sleepQuality;
             return avg;
 
         }, 0)
 
-        let average = sum / this.userObjects.length;
+        let average = sum / this.sleepData.length;
 
-        return average;
+        return Math.round(average);
     }
 }
 
