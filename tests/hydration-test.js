@@ -2,15 +2,51 @@ const chai = require("chai");
 const expect = chai.expect;
 
 let Hydration = require("../classes/Hydration");
-let hydrationData = 
+let hydrationData = [
     {
       "userID": 1,
       "date": "2019/06/15",
       "numOunces": 1
-    };
+    },
+    {
+      "userID": 1,
+      "date": "2019/06/16",
+      "numOunces": 3
+    },
+    {
+    "userID": 1,
+    "date": "2019/06/17",
+    "numOunces": 1
+    },
+    {
+    "userID": 1,
+    "date": "2019/06/18",
+    "numOunces": 1
+    },
+    {
+    "userID": 1,
+    "date": "2019/06/19",
+    "numOunces": 1
+    },
+    {
+    "userID": 1,
+    "date": "2019/06/20",
+    "numOunces": 1
+    },
+    {
+    "userID": 1,
+    "date": "2019/06/21",
+    "numOunces": 1
+    },
+    {
+    "userID": 1,
+    "date": "2019/06/22",
+    "numOunces": 2
+    },
+];
 
-describe.only('Hydration', () => {
-    
+describe('Hydration', () => {
+
     it('should be a function', function() {
         const a = new Hydration(hydrationData);
         expect(Hydration).to.be.a('function');
@@ -21,24 +57,39 @@ describe.only('Hydration', () => {
         expect(a).to.be.an.instanceof(Hydration);
     });
 
-    it('should have a userID', function() {
+    it("should be able to tell you how many ounces of water each day for the last week", () => {
         
         const a = new Hydration(hydrationData);
-        
-        expect(a.userID).to.equal(1);
-    });
-
-    it('should have a date', function() {
-        
-        const a = new Hydration(hydrationData);
-        
-        expect(a.date).to.equal("2019/06/15");
-    });
-
-    it('should have a number of ounces of water for that date', function() {
-        
-        const a = new Hydration(hydrationData);
-        
-        expect(a.numOunces).to.equal(1);
+  
+        expect(a.lastWeekOfWaterData()).to.deep.equal([
+            {
+                "date": "2019/06/16",
+                "numOunces": 3
+            },
+            {
+                "date": "2019/06/17",
+                "numOunces": 1
+            },
+            {
+                "date": "2019/06/18",
+                "numOunces": 1
+            },
+            {
+                "date": "2019/06/19",
+                "numOunces": 1
+            },
+            {
+                "date": "2019/06/20",
+                "numOunces": 1
+            },
+            {
+                "date": "2019/06/21",
+                "numOunces": 1
+            },
+            {
+                "date": "2019/06/22",
+                "numOunces": 2
+            }
+        ]);
     });
 });
