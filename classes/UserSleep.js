@@ -1,12 +1,19 @@
 class UserSleep {
-    constructor(userSleepData) {
-        this.userSleepData = userSleepData;
+    constructor(sleepData) {
+        this.userSleepData = sleepData;
     }
-    getAvgHoursSlept(userID) {
-      let userHoursSlept = this.sleepData.filter(sleepHours => {
-        return sleepHours.hoursSlept
-      })
-      console.log(userHoursSlept);
+    getUserAvgHoursSlept() {
+        var sum = this.userSleepData.reduce((avg, object) => {
+
+            avg += object.hoursSlept;
+            return avg;
+
+        }, 0)
+
+        let average = sum / this.userSleepData.length;
+
+        return average;
+    }
 }
 
 if (typeof module !== 'undefined') {
