@@ -24,7 +24,11 @@ class UserSleep {
       let averageQuality = sum / userSleepDataList.length;
       return averageQuality;
   }
-  getHoursSlept(date) {
+    getHoursSlept(date) {
+        let sleepData = this.userSleepData.find(sleepObj => {
+            return sleepObj.date == date;
+        });
+        return sleepData.hoursSlept;
   }
 }
 
