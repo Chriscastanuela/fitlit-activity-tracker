@@ -1,9 +1,9 @@
-class SleepAll {
+class UserSleep {
     constructor() {
         //
     }
 }
 
 if (typeof module !== 'undefined') {
-  module.exports = SleepAll;
+  module.exports = UserSleep;
 }

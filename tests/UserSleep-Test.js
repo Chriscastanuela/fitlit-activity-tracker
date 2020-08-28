@@ -1,7 +1,7 @@
 const chai = require("chai");
 const expect = chai.expect;
 
-let SleepUser = require("../classes/Sleep-User");
+let UserSleep = require("../classes/User-Sleep");
 let sleepData = [
     {
         "userID": 1,
@@ -125,13 +125,13 @@ let sleepData = [
     },
 ];
 
-describe.only('SleepUser', () => {
+describe.only('UserSleep', () => {
     it('should be a function', function() {
-        const a = new SleepUser(sleepData);
-        expect(SleepUser).to.be.a('function');
+        const a = new UserSleep(sleepData);
+        expect(UserSleep).to.be.a('function');
     });
     it('should be an instance of Hydration', function() {
-        const a = new SleepUser(sleepData);
-        expect(a).to.be.an.instanceof(SleepUser);
+        const a = new UserSleep(sleepData);
+        expect(a).to.be.an.instanceof(UserSleep);
     });
 });
