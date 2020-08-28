@@ -6,7 +6,7 @@ let sleepData = [
     {
         "userID": 1,
         "date": "2019/06/15",
-        "hoursSlept": 1.1,
+        "hoursSlept": 7.5,
         "sleepQuality": 2.2
     },
     {
@@ -18,7 +18,7 @@ let sleepData = [
     {
         "userID": 1,
         "date": "2019/07/15",
-        "hoursSlept": 1.1,
+        "hoursSlept": 6.0,
         "sleepQuality": 2.2
     }
 ];
@@ -35,20 +35,20 @@ describe('UserSleep', () => {
 
         expect(a).to.be.an.instanceof(UserSleep);
     });
-    it.only("should return the average hours a user slept per day", () => {
+    it("should return the average hours a user slept per day", () => {
       const a = new UserSleep(sleepData);
 
-        expect(a.getUserAvgHoursSlept("2019/06/15")).to.equal(1.1)
+        expect(a.getUserAvgHoursSlept(1)).to.equal(6.75)
     });
-    it("should return the average sleep quality for all days logged", () => {
+    it.only("should return the average sleep quality for all days logged", () => {
       const a = new UserSleep(sleepData);
 
-        expect(a.getAvgHoursSlept("2019/06/15")).to.equal(1)
+        expect(a.getUserAvgSleepQuality(1)).to.equal(2.2)
     });
     it("should return how many hours slept on a given date", () => {
       const a = new UserSleep(sleepData);
 
-        expect(a.getAvgHoursSlept("2019/06/15")).to.equal(1)
+        expect(a.getHoursSlept(1, "2019/06/15")).to.equal(1.1)
     });
     it("should return sleep quality for a given date", () => {
       const a = new UserSleep(sleepData);
