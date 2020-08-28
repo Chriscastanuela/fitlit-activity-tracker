@@ -13,9 +13,6 @@ class HydrationRepository {
         let average = sum / userHydrationDataList.length;
         return average;
     }
-    lastWeekOfWaterData(userID) {
-        //
-    }
 }
 
 module.exports = HydrationRepository;

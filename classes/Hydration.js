@@ -11,13 +11,3 @@ class Hydration {
 };
 
 module.exports = Hydration;
-
-/*
-
-passing in a date
-
-sort through our array, stop when date found
-
-give us ounces for that date
-
-*/
