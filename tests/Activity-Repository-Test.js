@@ -69,23 +69,22 @@ let activityData = [
     }
 ];
 
-describe.only('ActivityRepository', () => {
+describe('Activity-Repository', () => {
 
-    it('should be a function', function() {
+    it('1. should be a function', function() {
         const a = new ActivityRepository(activityData);
         expect(ActivityRepository).to.be.a('function');
     });
 
-    it('should be an instance of ActivityRepository', function() {
+    it('2. should be an instance of ActivityRepository', function() {
         const a = new ActivityRepository(activityData);
         expect(a).to.be.an.instanceof(ActivityRepository);
     });
 
-    // it("should average a user/'s hydration based on their ID", () => {
+    it("3. should average all user/'s amount of stairs climbed on a given date", () => {
         
-    //     const a = new HydrationRepository(hydrationData);
+        const a = new ActivityRepository(activityData);
 
-    //     expect(a.averageFlOzAllTime(1)).to.equal(1)
-
-    // });
+        expect(a.stairsClimbedOnAGivenDate("2019/09/22")).to.equal(20);
+    });
 });
