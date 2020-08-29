@@ -2,12 +2,16 @@ class UserSleep {
     constructor(sleepData) {
       this.userSleepData = sleepData;
     }
-    
+
     findUserInfo(userId) {
       return this.userSleepData.filter(user => user.userID === id);
     }
 
-    getUserAvgHoursSlept(userId) {
+    findDay(date,userId) {
+      return this.findUserInfo(userId).find(date => user.date === date);
+    }
+
+    findUserAvgHoursSlept(userId) {
           let userSleepDataList = this.userSleepData.filter(sleepObj => {
               return sleepObj.userID == userId;
           });
@@ -18,7 +22,7 @@ class UserSleep {
           let averageHours = sum / userSleepDataList.length;
           return Math.round(averageHours);
     }
-    getUserAvgSleepQuality(userId) {
+    findfUserAvgSleepQuality(userId) {
       let userSleepDataList = this.userSleepData.filter(sleepObj => {
           return sleepObj.userID == userId;
       });
@@ -29,7 +33,7 @@ class UserSleep {
       let averageQuality = sum / userSleepDataList.length;
       return Math.round(averageQuality);
   }
-    getHoursSlept(userId, date) {
+    findHoursSlept(userId, date) {
         let userSleepDataList = this.userSleepData.filter(sleepObj => {
             return sleepObj.userID == userId;
         });
@@ -38,7 +42,7 @@ class UserSleep {
         });
         return sleepData.hoursSlept;
   }
-    getSleepQuality(userId, date) {
+    findSleepQuality(userId, date) {
       let userSleepDataList = this.userSleepData.filter(sleepObj => {
           return sleepObj.userID == userId;
       });
@@ -47,7 +51,7 @@ class UserSleep {
       });
       return sleepData.sleepQuality;
     }
-    lastWeekOfSleepData(userId, date) {
+    findlastWeekOfSleepData(userId, date) {
         let userSleepDataList = this.userSleepData.filter(sleepObj => {
           return sleepObj.userID == userId;
         });
