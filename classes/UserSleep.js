@@ -12,9 +12,6 @@ class UserSleep {
     }
 
     findUserAvgHoursSlept(userId) {
-          let userSleepDataList = this.userSleepData.filter(sleepObj => {
-              return sleepObj.userID == userId;
-          });
           let sum = userSleepDataList.reduce((avg, object) => {
               avg += object.hoursSlept;
               return avg;
