@@ -1,7 +1,12 @@
 class UserSleep {
     constructor(sleepData) {
-        this.userSleepData = sleepData;
+      this.userSleepData = sleepData;
     }
+    
+    findUserInfo(userId) {
+      return this.userSleepData.filter(user => user.userID === id);
+    }
+
     getUserAvgHoursSlept(userId) {
           let userSleepDataList = this.userSleepData.filter(sleepObj => {
               return sleepObj.userID == userId;
@@ -42,17 +47,27 @@ class UserSleep {
       });
       return sleepData.sleepQuality;
     }
-  //   getSevenDaySleepHours(userId, startdate) {
-  //     let userSleepDataList = this.userSleepData.filter(sleepObj => {
-  //         return sleepObj.userID == userId;
-  //     });
-  //     let sum = userSleepDataList.sort((startDate, endDate) => {
-  //         avg += object.sleepQuality;
-  //         return avg;
-  //     }, 0);
-  //     let  = sum / userSleepDataList.length;
-  //     return
-  // }
+    lastWeekOfSleepData(userId, date) {
+        let userSleepDataList = this.userSleepData.filter(sleepObj => {
+          return sleepObj.userID == userId;
+        });
+
+        let sortedData = this.userSleepDataList.sort((a, b) =>a - b);
+
+        let lastSeven = sortedData.slice(-7);/**/
+
+         console.log("LastSeven", lastSeven);
+
+         let noId = lastSeven.map(index => {
+             let newIndex = {
+                 date: index.date,
+                 hoursSlept: index.hoursSlept,
+             };
+             return newIndex;
+         });
+         console.log(noId);
+         return noId;
+     };
 }
 
 if (typeof module !== 'undefined') {

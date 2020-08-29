@@ -153,9 +153,9 @@ describe('UserSleep', () => {
         expect(a.getSleepQuality(1, "2019/06/17")).to.equal(2.3)
     });
 
-    it.skip("should return how many hours slept in the last seven days", () => {
+    it("should return how many hours slept in the last seven days", () => {
       const a = new UserSleep(sleepData);
 
-        expect(a.getsevenDaySleepHours(2, "2019/06/17")).to.deep.equal([1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1])
+        expect(a.lastWeekOfSleepData(2, "2019/06/17")).to.deep.equal([1.1, 1.1, 1.1, 1.1, 1.1, 1.1, 1.1])
     });
 });
