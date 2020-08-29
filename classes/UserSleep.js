@@ -24,12 +24,16 @@ class UserSleep {
         day.date >= startDate && day.date <= endDate);
     }
 
-    findAvgDailySleep(userId) { //return a user's avg sleep a night
-      let sleepRecord = this.findUserData(userId).reduce((avg, object) => {
+    findAvgDailySleep(startDate, endDate, userId) { //return a user's avg sleep a night
+      let sleepRecord = this.findUserData(userId)
+      .reduce((avg, object) => {
           avg += object.hoursSlept;
+          console.log(avg);
             return avg;
+
       }, 0);
-      let averageHours = sum / sleepRecord.length;
+
+      let averageHours = avg / sleepRecord.length;
       return Math.round(averageHours);
     }
 
@@ -38,19 +42,28 @@ class UserSleep {
           avg += object.sleepQuality;
           return avg;
       }, 0);
-      let averageQuality = sum / sleepRecord.length;
+      let averageQuality = avg / sleepRecord.length;
       return Math.round(averageQuality);
   }
 
     findSevenDayAvgHoursSlept(startDate, endDate, userId) { //last 7 days you've slept an average of 5 hours a night
-        let sevenDayData = this.findUserData(userId).findUserWeeklyData(startId, startDate, endDate);
-        let sevenDaysOfSleep = sevenDayData.map(day => day.hoursSlept);
-        let averageSleep = sevenDaysOfSleep.reduce((acc, num) => {
-          return acc + num;
-        },0)
-        let result = averageSleep / sevenDayData.length
-        return Math.round(result);
-     };
+      let sevenDayData = this.findUserData(userId).findUserWeeklyData(startId, startDate, endDate);
+      let sevenDaysOfSleep = sevenDayData.map(day => day.hoursSlept);
+      let averageSleep = sevenDaysOfSleep.reduce((acc, num) => {
+        return acc + num;
+      },0)
+      let result = averageSleep / sevenDayData.length
+      return Math.round(result);
+  };
+    findSevenDayAvgSleepQuality(startDate, endDate, userId) { //last 7 days you've slept well.
+      let sevenDayData = this.findUserData(userId).findUserWeeklyData(startId, startDate, endDate);
+      let sevenDaysOfSleep = sevenDayData.map(day => day.sleepQuality);
+      let averageSleepQual = sevenDaysOfSleep.reduce((acc, num) => {
+        return acc + num;
+      },0)
+      let result = averageSleepQual / sevenDayData.length
+      return Math.round(result);
+  };
 }
 
 if (typeof module !== 'undefined') {

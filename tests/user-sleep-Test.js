@@ -131,10 +131,10 @@ describe('UserSleep', () => {
 
         expect(a).to.be.an.instanceof(UserSleep);
     });
-    it("should return the average hours a user slept per day", () => {
+    it.only("should return the average hours a user has slept per day", () => {
       const a = new UserSleep(sleepData);
 
-        expect(a.findUserAvgHoursSlept(1)).to.equal(7)
+        expect(a.findAvgDailySleep(1)).to.equal(7)
     });
     it("should return the average sleep quality for all days logged", () => {
       const a = new UserSleep(sleepData);
