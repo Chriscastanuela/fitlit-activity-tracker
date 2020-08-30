@@ -1,58 +1,69 @@
 class UserSleep {
     constructor(sleepData) {
-        this.userSleepData = sleepData;
+      this.userSleepData = sleepData;
     }
-    getUserAvgHoursSlept(userId) {
-          let userSleepDataList = this.userSleepData.filter(sleepObj => {
-              return sleepObj.userID == userId;
-          });
-          let sum = userSleepDataList.reduce((avg, object) => {
-              avg += object.hoursSlept;
-              return avg;
-          }, 0);
-          let averageHours = sum / userSleepDataList.length;
-          return Math.round(averageHours);
+
+    findUserData(userId) {
+      return this.userSleepData.filter(user => user.userID === userId);
     }
-    getUserAvgSleepQuality(userId) {
-      let userSleepDataList = this.userSleepData.filter(sleepObj => {
-          return sleepObj.userID == userId;
-      });
-      let sum = userSleepDataList.reduce((avg, object) => {
-          avg += object.sleepQuality;
-          return avg;
+
+    findDay(date, userId) {
+      return this.findUserData(userId).find(user => user.date === date);
+    }
+
+    findDailySleep(date, userId) {
+      return this.findDay(date, userId).hoursSlept;
+    }
+
+    findDailySleepQuality(date, userId) {
+      return this.findDay(date, userId).sleepQuality
+    }
+
+    findUserWeeklyData(startDate, endDate, userId) {
+      return this.findUserData(userId).filter(day =>
+        day.date >= startDate && day.date <= endDate);
+    }
+
+    findAvgDailySleep(userId) {
+      let sleepRecord = this.findUserData(userId)
+      let userSleepRecord= sleepRecord.map(day => day.hoursSlept)
+      .reduce((acc, num) => {
+        return acc + num
       }, 0);
-      let averageQuality = sum / userSleepDataList.length;
-      return Math.round(averageQuality);
-  }
-    getHoursSlept(userId, date) {
-        let userSleepDataList = this.userSleepData.filter(sleepObj => {
-            return sleepObj.userID == userId;
-        });
-        let sleepData = userSleepDataList.find(sleepObj => {
-            return sleepObj.date == date;
-        });
-        return sleepData.hoursSlept;
-  }
-    getSleepQuality(userId, date) {
-      let userSleepDataList = this.userSleepData.filter(sleepObj => {
-          return sleepObj.userID == userId;
-      });
-      let sleepData = userSleepDataList.find(sleepObj => {
-        return sleepObj.date == date;
-      });
-      return sleepData.sleepQuality;
+      let averageHours = userSleepRecord / sleepRecord.length;
+      return Math.round(averageHours);
     }
-  //   getSevenDaySleepHours(userId, startdate) {
-  //     let userSleepDataList = this.userSleepData.filter(sleepObj => {
-  //         return sleepObj.userID == userId;
-  //     });
-  //     let sum = userSleepDataList.sort((startDate, endDate) => {
-  //         avg += object.sleepQuality;
-  //         return avg;
-  //     }, 0);
-  //     let  = sum / userSleepDataList.length;
-  //     return
-  // }
+
+    findAvgDailySleepQuality(userId) {
+      let sleepRecord = this.findUserData(userId)
+      let userSleepRecord= sleepRecord.map(day => day.sleepQuality)
+      .reduce((acc, num) => {
+        return acc + num
+      }, 0);
+      let averageQuality = userSleepRecord / sleepRecord.length;
+      return Math.round(averageQuality);
+    }
+
+    findSevenDayAvgHoursSlept(startDate, endDate, userId) {
+      let sevenDayData = this.findUserData(userId)
+      .filter(day => day.date >= startDate && day.date <= endDate)
+      let sevenDaysOfSleep = sevenDayData.map(day => day.hoursSlept);
+      let averageSleep = sevenDaysOfSleep.reduce((acc, num) => {
+        return acc + num;
+      },0)
+      let result = averageSleep / sevenDayData.length
+      return Math.round(result);
+  };
+    findSevenDayAvgSleepQuality(startDate, endDate, userId) { 
+      let sevenDayData = this.findUserData(userId)
+      .filter(day => day.date >= startDate && day.date <= endDate)
+      let sevenDaysOfSleep = sevenDayData.map(day => day.sleepQuality);
+      let averageSleepQual = sevenDaysOfSleep.reduce((acc, num) => {
+        return acc + num;
+      },0)
+      let result = averageSleepQual / sevenDayData.length
+      return Math.round(result);
+  };
 }
 
 if (typeof module !== 'undefined') {
