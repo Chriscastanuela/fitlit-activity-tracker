@@ -7,22 +7,22 @@ let activityData = [
     {
     "userID": 1,
     "date": "2019/09/22",
-    "numSteps": 10268,
-    "minutesActive": 41,
+    "numSteps": 2,
+    "minutesActive": 2,
     "flightsOfStairs": 19
     },
     {
     "userID": 2,
     "date": "2019/09/22",
-    "numSteps": 14908,
-    "minutesActive": 134,
+    "numSteps": 2,
+    "minutesActive": 2,
     "flightsOfStairs": 13
     },
     {
     "userID": 3,
     "date": "2019/09/22",
-    "numSteps": 10581,
-    "minutesActive": 165,
+    "numSteps": 2,
+    "minutesActive": 2,
     "flightsOfStairs": 28
     },
     {
@@ -86,5 +86,48 @@ describe('Activity-Repository', () => {
         const a = new ActivityRepository(activityData);
 
         expect(a.stairsClimbedOnAGivenDate("2019/09/22")).to.equal(20);
+    });
+
+    it("4. should average all user/'s amount of steps taken on a given date", () => {
+        
+        const a = new ActivityRepository(activityData);
+
+        expect(a.stepsTakenOnAGivenDate("2019/09/22")).to.equal(2);
+    });
+
+    it("5. should average all user/'s amount of minutes active on a given date", () => {
+        
+        const a = new ActivityRepository(activityData);
+
+        expect(a.minutesActiveOnAGivenDate("2019/09/22")).to.equal(2);
+    });
+
+    it("6. should return all data for one user", () => {
+        
+        const a = new ActivityRepository(activityData);
+
+        expect(a.allDataOfOneUser(1)).to.deep.equal([
+            {
+            "userID": 1,
+            "date": "2019/09/22",
+            "numSteps": 2,
+            "minutesActive": 2,
+            "flightsOfStairs": 19
+            },
+            {
+            "userID": 1,
+            "date": "2019/09/23",
+            "numSteps": 2040,
+            "minutesActive": 289,
+            "flightsOfStairs": 46
+            },
+            {
+            "userID": 1,
+            "date": "2019/09/24",
+            "numSteps": 11105,
+            "minutesActive": 118,
+            "flightsOfStairs": 25
+            }
+        ]);
     });
 });

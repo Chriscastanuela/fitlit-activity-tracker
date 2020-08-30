@@ -2,6 +2,12 @@ class ActivityRepository {
     constructor(activityData) {
         this.activityData = activityData;
     }
+    allDataOfOneUser(userID) {
+        let userData = this.activityData.filter(oneDataObject => {
+            return oneDataObject.userID == userID;
+        })
+        return userData;
+    };
     stairsClimbedOnAGivenDate(date) {
         let stairsClimbed = [];
         this.activityData.forEach(oneData => {
@@ -15,17 +21,35 @@ class ActivityRepository {
         }, 0)/stairsClimbed.length;
         return avgStairsClimbed;
     };
+    stepsTakenOnAGivenDate(date) {
+        let stepsTaken = [];
+        this.activityData.forEach(oneData => {
+            if (oneData.date == date) {
+                stepsTaken.push(oneData.numSteps);
+            }
+        })
+        let avgStepsTaken = stepsTaken.reduce((acc, oneData) => {
+            acc += oneData;
+            return acc;
+        }, 0)/stepsTaken.length;
+        return avgStepsTaken;
+    };
+    minutesActiveOnAGivenDate(date) {
+        let minutesActive = [];
+        this.activityData.forEach(oneData => {
+            if (oneData.date == date) {
+                minutesActive.push(oneData.minutesActive);
+            }
+        })
+        let avgMinutesActive = minutesActive.reduce((acc, oneData) => {
+            acc += oneData;
+            return acc;
+        }, 0)/minutesActive.length;
+        return avgMinutesActive;
+    };
 };
 
 module.exports = ActivityRepository;
 if (typeof module !== "undefined") {
     module.exports = ActivityRepository;
 };
-
-/*
-
-For all users, what is the average number of:
-    steps taken for a specific date
-    minutes active for a specific date
-
-*/
