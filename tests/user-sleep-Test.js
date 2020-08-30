@@ -131,15 +131,102 @@ describe('UserSleep', () => {
 
         expect(a).to.be.an.instanceof(UserSleep);
     });
-    it.only("should return the average hours a user has slept per day", () => {
+    it("should return a single user's data", () => {
+      const a = new UserSleep(sleepData);
+
+        expect(a.findUserData(1)).to.deep.equal([{
+            "userID": 1,
+            "date": "2019/06/09",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/10",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/11",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/12",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/13",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/14",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/15",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/16",
+            "hoursSlept": 6.0,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/16",
+            "hoursSlept": 7.5,
+            "sleepQuality": 2.2
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/17",
+            "hoursSlept": 6.0,
+            "sleepQuality": 2.3
+        },
+        {
+            "userID": 1,
+            "date": "2019/06/18",
+            "hoursSlept": 6.0,
+            "sleepQuality": 2.2
+        }])
+    });
+    it("should return a user's record for a single date", () => {
+      const a = new UserSleep(sleepData);
+
+        expect(a.findDay("2019/06/18", 1)).to.deep.equal({
+            "userID": 1,
+            "date": "2019/06/18",
+            "hoursSlept": 6.0,
+            "sleepQuality": 2.2
+        })
+        expect(a.findDay("2019/06/13", 2)).to.deep.equal({
+            "userID": 2,
+            "date": "2019/06/13",
+            "hoursSlept": 1.1,
+            "sleepQuality": 2.2
+        })
+    });
+    it("should return the average hours a user has slept per day", () => {
       const a = new UserSleep(sleepData);
 
         expect(a.findAvgDailySleep(1)).to.equal(7)
+        expect(a.findAvgDailySleep(2)).to.equal(1)
     });
     it("should return the average sleep quality for all days logged", () => {
       const a = new UserSleep(sleepData);
 
-        expect(a.findUserAvgSleepQuality(1)).to.equal(2)
+        expect(a.findAvgDailySleepQuality(1)).to.equal(2)
     });
     it("should return how many hours slept on a given date", () => {
       const a = new UserSleep(sleepData);

@@ -24,27 +24,25 @@ class UserSleep {
         day.date >= startDate && day.date <= endDate);
     }
 
-    findAvgDailySleep(startDate, endDate, userId) { //return a user's avg sleep a night
+    findAvgDailySleep(userId) { //return a user's avg sleep a night
       let sleepRecord = this.findUserData(userId)
-      .reduce((avg, object) => {
-          avg += object.hoursSlept;
-          console.log(avg);
-            return avg;
-
+      let userSleepRecord= sleepRecord.map(day => day.hoursSlept)
+      .reduce((acc, num) => {
+        return acc + num
       }, 0);
-
-      let averageHours = avg / sleepRecord.length;
+      let averageHours = userSleepRecord / sleepRecord.length;
       return Math.round(averageHours);
     }
 
     findAvgDailySleepQuality(userId) { //return a user's avg sleep quality
-      let sleepRecord = this.findUserData(userId).reduce((avg, object) => {
-          avg += object.sleepQuality;
-          return avg;
+      let sleepRecord = this.findUserData(userId)
+      let userSleepRecord= sleepRecord.map(day => day.sleepQuality)
+      .reduce((acc, num) => {
+        return acc + num
       }, 0);
-      let averageQuality = avg / sleepRecord.length;
+      let averageQuality = userSleepRecord / sleepRecord.length;
       return Math.round(averageQuality);
-  }
+    }
 
     findSevenDayAvgHoursSlept(startDate, endDate, userId) { //last 7 days you've slept an average of 5 hours a night
       let sevenDayData = this.findUserData(userId).findUserWeeklyData(startId, startDate, endDate);
