@@ -45,7 +45,8 @@ class UserSleep {
     }
 
     findSevenDayAvgHoursSlept(startDate, endDate, userId) { //last 7 days you've slept an average of 5 hours a night
-      let sevenDayData = this.findUserData(userId).findUserWeeklyData(startId, startDate, endDate);
+      let sevenDayData = this.findUserData(userId)
+      .filter(day => day.date >= startDate && day.date <= endDate)
       let sevenDaysOfSleep = sevenDayData.map(day => day.hoursSlept);
       let averageSleep = sevenDaysOfSleep.reduce((acc, num) => {
         return acc + num;
