@@ -34,7 +34,7 @@ class ActivityRepository {
         }, 0)/stepsTaken.length;
         return avgStepsTaken;
     };
-    minutesActiveOnAGivenDate(date) {
+    allUsersMinutesActiveOnAGivenDate(date) {
         let minutesActive = [];
         this.activityData.forEach(oneData => {
             if (oneData.date == date) {
@@ -46,6 +46,14 @@ class ActivityRepository {
             return acc;
         }, 0)/minutesActive.length;
         return avgMinutesActive;
+    };
+    oneUserMinutesActiveOnAGivenDate(user, date) {
+        let correctObject = this.activityData.find(oneData => {
+            if (oneData.date == date && oneData.userID == user) {
+                return oneData.minutesActive;
+            }
+        })
+        return correctObject.minutesActive;
     };
 };
 

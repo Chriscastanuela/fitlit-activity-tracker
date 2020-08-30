@@ -99,7 +99,7 @@ describe('Activity-Repository', () => {
         
         const a = new ActivityRepository(activityData);
 
-        expect(a.minutesActiveOnAGivenDate("2019/09/22")).to.equal(2);
+        expect(a.allUsersMinutesActiveOnAGivenDate("2019/09/22")).to.equal(2);
     });
 
     it("6. should return all data for one user", () => {
@@ -129,5 +129,12 @@ describe('Activity-Repository', () => {
             "flightsOfStairs": 25
             }
         ]);
+    });
+
+    it("7. should return a user/'s amount of minutes active on a given date", () => {
+        
+        const a = new ActivityRepository(activityData);
+
+        expect(a.oneUserMinutesActiveOnAGivenDate(1, "2019/09/22")).to.equal(2);
     });
 });
