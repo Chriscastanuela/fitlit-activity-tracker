@@ -107,6 +107,12 @@ describe('Activity', () => {
     it("4. should average a user/'s amount of minutes active for a given week", () => {
         
         const a = new Activity(activityData);
-        expect(a.averageMinutesActiveForAGivenWeek()).to.equal(118);
+        expect(a.averageMinutesActiveForAGivenWeek("2019/09/24", "2019/09/30")).to.equal(118);
+    });
+
+    it("5. should average a user/'s amount of minutes active for the last week", () => {
+        
+        const a = new Activity(activityData);
+        expect(a.averageMinutesActiveForTheLastWeek()).to.equal(118);
     });
 });

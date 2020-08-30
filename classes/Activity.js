@@ -4,21 +4,21 @@ class Activity {
     constructor(data) {
         this.data = data;
     };
-    averageMinutesActiveForAGivenWeek() {
-        let justTheMinutes = this.data.map(oneData => {
-            return oneData.minutesActive;
-        })
+    averageMinutesActiveForTheLastWeek() {
+        let justTheMinutes = this.data.map(oneData => oneData.minutesActive)
         let lastSeven = justTheMinutes.slice(-7);
-        let average = lastSeven.reduce((acc, oneData) => {
-            return acc += oneData;
-        }, 0)/lastSeven.length;
-        console.log(average);
+        let average = lastSeven.reduce((acc, index) => {
+            return acc += index;
+        }, 0)/7;
         return average;
-        /*
-        4. For a user, 
-        how many minutes active did they average for a given week (7 days)?
-            ???? "Given" week === most recent week?
-        */
+    }
+    averageMinutesActiveForAGivenWeek(startDate, endDate) {
+        let sevenDayData = this.data.filter(data => data.date >= startDate && data.date <= endDate);
+        let sevenDayMinutes = sevenDayData.map(oneData => oneData.minutesActive);
+        let average = sevenDayMinutes.reduce((acc, index) => {
+            return acc += index;
+        }, 0)/7;
+        return average;
     }
 };
 
