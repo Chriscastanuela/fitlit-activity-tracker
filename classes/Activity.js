@@ -20,6 +20,9 @@ class Activity {
         }, 0)/7;
         return average;
     }
+    daysWhereTheyBeatStepGoal() {
+        //
+    }
     stairRecord() {
         let flightCounts = this.data.map(flightCount => flightCount.flightsOfStairs);
         let sortedFlightCount = flightCounts.sort((a,b) => a-b);
@@ -39,6 +42,4 @@ For a user,
     did they reach their step goal for a given day (specified by a date)?
 For a user,
     find all the days where they exceeded their step goal
-For a user,
-    find their all-time stair climbing record
 */
