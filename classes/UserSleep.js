@@ -3,28 +3,28 @@ class UserSleep {
       this.userSleepData = sleepData;
     }
 
-    findUserData(userId) { //find the user's info
+    findUserData(userId) {
       return this.userSleepData.filter(user => user.userID === userId);
     }
 
-    findDay(date, userId) { //find a date within that user's data
+    findDay(date, userId) {
       return this.findUserData(userId).find(user => user.date === date);
     }
 
-    findDailySleep(date, userId) { //find the sleep qty for a user on a day
+    findDailySleep(date, userId) {
       return this.findDay(date, userId).hoursSlept;
     }
 
-    findDailySleepQuality(date, userId) {// find daily sleep quality
+    findDailySleepQuality(date, userId) {
       return this.findDay(date, userId).sleepQuality
     }
 
-    findUserWeeklyData(startDate, endDate, userId) { // pull weekly sleep data for a user from a date
+    findUserWeeklyData(startDate, endDate, userId) {
       return this.findUserData(userId).filter(day =>
         day.date >= startDate && day.date <= endDate);
     }
 
-    findAvgDailySleep(userId) { //return a user's avg sleep a night
+    findAvgDailySleep(userId) {
       let sleepRecord = this.findUserData(userId)
       let userSleepRecord= sleepRecord.map(day => day.hoursSlept)
       .reduce((acc, num) => {
@@ -34,7 +34,7 @@ class UserSleep {
       return Math.round(averageHours);
     }
 
-    findAvgDailySleepQuality(userId) { //return a user's avg sleep quality
+    findAvgDailySleepQuality(userId) {
       let sleepRecord = this.findUserData(userId)
       let userSleepRecord= sleepRecord.map(day => day.sleepQuality)
       .reduce((acc, num) => {
@@ -44,7 +44,7 @@ class UserSleep {
       return Math.round(averageQuality);
     }
 
-    findSevenDayAvgHoursSlept(startDate, endDate, userId) { //last 7 days you've slept an average of 5 hours a night
+    findSevenDayAvgHoursSlept(startDate, endDate, userId) {
       let sevenDayData = this.findUserData(userId)
       .filter(day => day.date >= startDate && day.date <= endDate)
       let sevenDaysOfSleep = sevenDayData.map(day => day.hoursSlept);
@@ -54,7 +54,7 @@ class UserSleep {
       let result = averageSleep / sevenDayData.length
       return Math.round(result);
   };
-    findSevenDayAvgSleepQuality(startDate, endDate, userId) { //last 7 days you've slept well.
+    findSevenDayAvgSleepQuality(startDate, endDate, userId) { 
       let sevenDayData = this.findUserData(userId)
       .filter(day => day.date >= startDate && day.date <= endDate)
       let sevenDaysOfSleep = sevenDayData.map(day => day.sleepQuality);

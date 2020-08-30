@@ -286,24 +286,12 @@ describe('UserSleep', () => {
 
         expect(a.findAvgDailySleepQuality(1)).to.equal(2)
     });
-    it("should return how many hours slept on a given date", () => {
-      const a = new UserSleep(sleepData);
-
-        expect(a.findHoursSlept(1, "2019/06/18")).to.equal(6.0)
-        expect(a.findHoursSlept(2, "2019/06/15")).to.equal(1.1)
-    });
-    it("should return sleep quality for a given date", () => {
-      const a = new UserSleep(sleepData);
-
-        expect(a.findSleepQuality(1, "2019/06/17")).to.equal(2.3)
-    });
-
     it("should return the avg hours slept over 7 days", () => {
       const a = new UserSleep(sleepData);
 
         expect(a.findSevenDayAvgHoursSlept("2019/06/09", "2019/06/15", 1)).to.deep.equal(8)
     });
-    it.only("should return the avg sleep quantity over 7 days", () => {
+    it("should return the avg sleep quantity over 7 days", () => {
       const a = new UserSleep(sleepData);
 
         expect(a.findSevenDayAvgSleepQuality("2019/06/11", "2019/06/18", 1)).to.deep.equal(2)
