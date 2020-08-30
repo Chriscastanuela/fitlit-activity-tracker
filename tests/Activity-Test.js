@@ -6,6 +6,20 @@ let Activity = require("../classes/Activity");
 let activityData = [
     {
     "userID": 1,
+    "date": "2019/09/20",
+    "numSteps": 2,
+    "minutesActive": 2,
+    "flightsOfStairs": 19
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/21",
+    "numSteps": 2,
+    "minutesActive": 2,
+    "flightsOfStairs": 19
+    },
+    {
+    "userID": 1,
     "date": "2019/09/22",
     "numSteps": 2,
     "minutesActive": 2,
@@ -21,6 +35,48 @@ let activityData = [
     {
     "userID": 1,
     "date": "2019/09/24",
+    "numSteps": 11105,
+    "minutesActive": 118,
+    "flightsOfStairs": 25
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/25",
+    "numSteps": 11105,
+    "minutesActive": 118,
+    "flightsOfStairs": 25
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/26",
+    "numSteps": 11105,
+    "minutesActive": 118,
+    "flightsOfStairs": 25
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/27",
+    "numSteps": 11105,
+    "minutesActive": 118,
+    "flightsOfStairs": 25
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/28",
+    "numSteps": 11105,
+    "minutesActive": 118,
+    "flightsOfStairs": 25
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/29",
+    "numSteps": 11105,
+    "minutesActive": 118,
+    "flightsOfStairs": 25
+    },
+    {
+    "userID": 1,
+    "date": "2019/09/30",
     "numSteps": 11105,
     "minutesActive": 118,
     "flightsOfStairs": 25
@@ -48,12 +104,9 @@ describe('Activity', () => {
     //     expect(a.stairsClimbedOnAGivenDate("2019/09/22")).to.equal(20);
     // });
 
-    it("3. should average all user/'s amount of stairs climbed on a given date", () => {
+    it("4. should average a user/'s amount of minutes active for a given week", () => {
         
         const a = new Activity(activityData);
-
-        console.loga.data
-
-        expect(a.stairsClimbedOnAGivenDate("2019/09/22")).to.equal(20);
+        expect(a.averageMinutesActiveForAGivenWeek()).to.equal(118);
     });
 });
