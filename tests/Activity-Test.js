@@ -82,6 +82,21 @@ let activityData = [
     "flightsOfStairs": 25
     }
 ];
+let userData = [
+    {
+        "id": 1,
+        "name": "Luisa Hane",
+        "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
+        "email": "Diana.Hayes1@hotmail.com",
+        "strideLength": 4.3,
+        "dailyStepGoal": 10000,
+        "friends": [
+          16,
+          4,
+          8
+        ]
+    },
+]
 
 describe('Activity', () => {
 
@@ -114,5 +129,23 @@ describe('Activity', () => {
         
         const a = new Activity(activityData);
         expect(a.averageMinutesActiveForTheLastWeek()).to.equal(118);
+    });
+
+    // it("6. should average a user/'s amount of minutes active for the last week", () => {
+        
+    //     const a = new Activity(activityData);
+    //     expect(a.averageMinutesActiveForTheLastWeek()).to.equal(118);
+    // });
+
+    // it("7. should return the days where the user exceeded their step goal", () => {
+        
+    //     const a = new Activity(activityData);
+    //     expect(a.daysWhereTheyBeatStepGoal()).to.equal(118);
+    // });
+
+    it("8. should return a user/'s all time stair climbing record", () => {
+        
+        const a = new Activity(activityData);
+        expect(a.stairRecord()).to.equal(46);
     });
 });

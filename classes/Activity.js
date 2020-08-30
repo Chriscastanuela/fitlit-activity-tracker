@@ -20,6 +20,12 @@ class Activity {
         }, 0)/7;
         return average;
     }
+    stairRecord() {
+        let flightCounts = this.data.map(flightCount => flightCount.flightsOfStairs);
+        let sortedFlightCount = flightCounts.sort((a,b) => a-b);
+        let highest = sortedFlightCount.slice(-1)[0];
+        return highest;
+    }
 };
 
 module.exports = Activity;
