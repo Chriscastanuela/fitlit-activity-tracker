@@ -217,6 +217,12 @@ describe('UserSleep', () => {
             "sleepQuality": 2.2
         })
     });
+    it("should return how many hours a user slept for a given date", () => {
+      const a = new UserSleep(sleepData);
+
+        expect(a.findDailySleep("2019/06/18", 1)).to.equal(6.0)
+        expect(a.findDailySleep("2019/06/13", 2)).to.equal(1.1)
+    });
     it("should return the average hours a user has slept per day", () => {
       const a = new UserSleep(sleepData);
 
