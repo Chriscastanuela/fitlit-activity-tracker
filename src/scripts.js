@@ -15,8 +15,11 @@ var friendTwoIcon = document.querySelector(".Friend-Name-2");
 var friendThreeIcon = document.querySelector(".Friend-Name-3");
 var friendFourIcon = document.querySelector(".Friend-Name-4");
 var userInfoCard = document.querySelector(".Mid");
+
 let userRepository = new UserRepository(userData);
 let currentUser = new User(userRepository.returnData(20))
+let sleepRepository = new SleepRepository(sleepData);
+let userSleep = new UserSleep(sleepData);
 
 
 function displayNewUser() {
