@@ -1,8 +1,8 @@
 const chai = require("chai");
 const expect = chai.expect;
 
-let SleepRepository = require("../classes/SleepRepository");
-let sleepData = [
+const SleepRepository = require("../classes/SleepRepository");
+const sleepData = [
     {
         "userID": 1,
         "date": "2019/06/15",
@@ -127,19 +127,80 @@ let sleepData = [
 
 describe('SleepRepository', () => {
     it('should be a function', function() {
-        const a = new SleepRepository(sleepData, userId);
+        const a = new SleepRepository(sleepData, 1);
 
         expect(SleepRepository).to.be.a('function');
     });
     it('should be an instance of SleepRepository', function() {
-        const a = new SleepRepository(sleepData, userId);
+        const a = new SleepRepository(sleepData, 1);
 
         expect(a).to.be.an.instanceof(SleepRepository);
     });
-    it.only('should find the full sleep record for a user', () => {
-        const a = new SleepRepository(sleepData, userId);
+    it('should find the full sleep record for a user', () => {
+        const a = new SleepRepository(sleepData, 1);
 
-        expect(a.findUserSleepData()).to.equal();
+        expect(a.findUserSleepData(1)).to.deep.equal([
+            {
+                "userID": 1,
+                "date": "2019/06/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/07/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/07/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/08/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/09/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/10/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/11/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/12/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/13/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            },
+            {
+                "userID": 1,
+                "date": "2019/14/15",
+                "hoursSlept": 1.1,
+                "sleepQuality": 2.2
+            }
+        ]);
     });
     it('should return the average sleep quality for all users', () => {
         const a = new SleepRepository(sleepData, userId);
