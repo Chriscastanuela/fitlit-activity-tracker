@@ -2,6 +2,7 @@ const chai = require("chai");
 const expect = chai.expect;
 
 let Activity = require("../classes/Activity");
+let ActivityRepository = require("../classes/Activity-Repository");
 
 let activityData = [
     {
@@ -82,7 +83,7 @@ let activityData = [
     "flightsOfStairs": 25
     }
 ];
-let userData = [
+let currentUser = [
     {
         "id": 1,
         "name": "Luisa Hane",
@@ -131,13 +132,13 @@ describe('Activity', () => {
         expect(a.averageMinutesActiveForTheLastWeek()).to.equal(118);
     });
 
-    // it("6. should average a user/'s amount of minutes active for the last week", () => {
+    it("6. should tell you if a user reached their step goal for a given date", () => {
         
-    //     const a = new Activity(activityData);
-    //     expect(a.averageMinutesActiveForTheLastWeek()).to.equal(118);
-    // });
+        const a = new Activity(activityData, currentUser);
+        expect(a.didTheyBeatTheirStepGoalOnThisDate("2019/09/22", currentUser)).to.equal("No");
+    });
 
-    // it("7. should return the days where the user exceeded their step goal", () => {
+    // it("7. should return all of the days where the user exceeded their step goal", () => {
         
     //     const a = new Activity(activityData);
     //     expect(a.daysWhereTheyBeatStepGoal()).to.equal(118);
@@ -146,6 +147,6 @@ describe('Activity', () => {
     it("8. should return a user/'s all time stair climbing record", () => {
         
         const a = new Activity(activityData);
-        expect(a.stairRecord()).to.equal(46);
+        expect(a.stairRecord(user)).to.equal(46);
     });
 });
