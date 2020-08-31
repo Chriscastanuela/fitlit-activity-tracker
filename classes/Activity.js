@@ -1,9 +1,6 @@
-const ActivityRepository = require("./Activity-Repository");
-
 class Activity {
-    constructor(data, user) {
+    constructor(data) {
         this.data = data;
-        this.user = user
     };
     /*4.*/averageMinutesActiveForAGivenWeek(startDate, endDate) {
         let sevenDayData = this.data.filter(data => data.date >= startDate && data.date <= endDate);
@@ -21,14 +18,18 @@ class Activity {
         }, 0)/7;
         return average;
     };
-    /*6.*/didTheyBeatTheirStepGoalOnThisDate(date) {
+    /*6.*/didTheyBeatTheirStepGoalOnThisDate(date, user) {
         /**/let dateData = this.data.find(data => data.date == date);
-        /**/if (dateData.numSteps >= this.user.dailyStepGoal) {
+        /**/if (dateData.numSteps >= user.dailyStepGoal) {
             return "Yes"
         } else {return "No"}
     }
-    /*7.*/daysWhereTheyBeatStepGoal() {
-        // 
+    /*7.*/daysWhereTheyBeatStepGoal(user) {
+        let arrayOfStepGoalVictoryData = this.data.filter(oneData => {
+            return oneData.numSteps >= user.dailyStepGoal
+        });
+        let justTheDates = arrayOfStepGoalVictoryData.map(oneIndex => oneIndex.date);
+        return justTheDates;
     }
     /*8.*/stairRecord(user) {
         let flightCounts = this.data.map(flightCount => flightCount.flightsOfStairs);

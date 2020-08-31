@@ -2,7 +2,6 @@ const chai = require("chai");
 const expect = chai.expect;
 
 let Activity = require("../classes/Activity");
-let ActivityRepository = require("../classes/Activity-Repository");
 
 let activityData = [
     {
@@ -15,7 +14,7 @@ let activityData = [
     {
     "userID": 1,
     "date": "2019/09/21",
-    "numSteps": 2,
+    "numSteps": 11111111111111,
     "minutesActive": 2,
     "flightsOfStairs": 19
     },
@@ -83,21 +82,19 @@ let activityData = [
     "flightsOfStairs": 25
     }
 ];
-let currentUser = [
-    {
-        "id": 1,
-        "name": "Luisa Hane",
-        "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
-        "email": "Diana.Hayes1@hotmail.com",
-        "strideLength": 4.3,
-        "dailyStepGoal": 10000,
-        "friends": [
-          16,
-          4,
-          8
-        ]
-    },
-]
+let currentUser = {
+    "id": 1,
+    "name": "Luisa Hane",
+    "address": "15195 Nakia Tunnel, Erdmanport VA 19901-1697",
+    "email": "Diana.Hayes1@hotmail.com",
+    "strideLength": 4.3,
+    "dailyStepGoal": 10000,
+    "friends": [
+        16,
+        4,
+        8
+    ]
+};
 
 describe('Activity', () => {
 
@@ -138,15 +135,25 @@ describe('Activity', () => {
         expect(a.didTheyBeatTheirStepGoalOnThisDate("2019/09/22", currentUser)).to.equal("No");
     });
 
-    // it("7. should return all of the days where the user exceeded their step goal", () => {
+    it("7. should return all of the days where the user exceeded their step goal", () => {
         
-    //     const a = new Activity(activityData);
-    //     expect(a.daysWhereTheyBeatStepGoal()).to.equal(118);
-    // });
+        const a = new Activity(activityData);
+        expect(a.daysWhereTheyBeatStepGoal(currentUser)).to.deep.equal([
+            "2019/09/21",
+            "2019/09/24",
+            "2019/09/25",
+            "2019/09/26",
+            "2019/09/27",
+            "2019/09/28",
+            "2019/09/29",
+            "2019/09/30"
+        ]);
+    });
 
     it("8. should return a user/'s all time stair climbing record", () => {
         
         const a = new Activity(activityData);
-        expect(a.stairRecord(user)).to.equal(46);
+        expect(a.daysWhereTheyBeatStepGoal(user)).to.equal(46);
     });
 });
+
