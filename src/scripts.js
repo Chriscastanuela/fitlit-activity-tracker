@@ -1,3 +1,5 @@
+const Hydration = require("../classes/Hydration");
+const Activity = require("../classes/Activity");
 
 var userGreeting = document.querySelector(".Hi-User");
 var userStepGoalDis = document.querySelector(".Step-Goals");
@@ -20,6 +22,9 @@ let userRepository = new UserRepository(userData);
 let currentUser = new User(userRepository.returnData(20))
 let sleepRepository = new SleepRepository(sleepData);
 let userSleep = new UserSleep(sleepData);
+let activityRepository = new ActivityRepository(activityData);
+let activity = new Activity(activityRepository.allDataOfOneUser(1));
+
 
 
 function displayNewUser() {
@@ -34,6 +39,14 @@ userInfoCard.innerHTML = `<div class="userContainer">
 </div>'`
 }
 
+
+
 window.onload = displayNewUser()
 
 console.log("Hello World");
+
+/*
+
+Hours slept, quality of sleep last day
+
+*/
