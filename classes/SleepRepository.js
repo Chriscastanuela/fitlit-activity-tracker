@@ -15,9 +15,13 @@ class SleepRepository {
       return Math.floor(this.userSleepRecord.reduce((acc,user) => {
         return acc + user.sleepQuality}, 1) / this.userSleepRecord.length)
     }
-    getTotalSleepQuality() {
+    findTotalSleepQuality() {
         return Math.floor(this.data.reduce((acc, user) => {
           return acc + user.sleepQuality} , 1) / this.data.length)
+    }
+    findTotalSleepQuantity() {
+        return Math.floor(this.data.reduce((acc, user) => {
+          return acc + user.hoursSlept} , 1) / this.data.length)
     }
 }
 
