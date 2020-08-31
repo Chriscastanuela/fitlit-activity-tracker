@@ -222,14 +222,40 @@ describe('SleepRepository', () => {
 
         expect(a.findTotalSleepQuantity()).to.equal(1);
     });
-    it('should return all users with an average sleep quality greater than 3 for a given week', function() {
-        const a = new SleepRepository(sleepData, userId);
-
-        expect(a).to.equal();
-    });
     it('should return the users who had the most sleep for a given day', function() {
-        const a = new SleepRepository(sleepData);
+        const a = new SleepRepository(sleepData, 2);
 
-        expect(a).to.equal();
+        expect(a.findMostHoursSlept("2019/07/15")).to.deep.equal([
+        {
+          "date": "2019/07/15",
+          "hoursSlept": 1.1,
+          "sleepQuality": 2.2,
+          "userID": 1
+        },
+        {
+          "date": "2019/07/15",
+          "hoursSlept": 1.1,
+          "sleepQuality": 2.2,
+          "userID": 2
+        },
+        {
+          "date": "2019/07/15",
+          "hoursSlept": 1.1,
+          "sleepQuality": 2.2,
+          "userID": 1
+        },
+        {
+          "date": "2019/07/15",
+          "hoursSlept": 1.1,
+          "sleepQuality": 2.2,
+          "userID": 2
+        }
+      ]);
     });
+    it('should return all users with an average sleep quality greater than 3 for a given week', function() {
+        const a = new SleepRepository(sleepData, 2);
+
+        expect(a.findUsersOverWeek("2019/07/10", "2019/07/17")).to.equal([]);
+    });
+
 });
