@@ -16,16 +16,8 @@ class SleepRepository {
         return acc + user.sleepQuality}, 1) / this.userSleepRecord.length)
     }
     getTotalSleepQuality() {
-        var sum = this.sleepData.reduce((avg, object) => {
-
-            avg += object.sleepQuality;
-            return avg;
-
-        }, 0)
-
-        let average = sum / this.sleepData.length;
-
-        return Math.round(average);
+        return Math.floor(this.data.reduce((acc, user) => {
+          return acc + user.sleepQuality} , 1) / this.data.length)
     }
 }
 

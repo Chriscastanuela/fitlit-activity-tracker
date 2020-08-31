@@ -215,7 +215,7 @@ describe('SleepRepository', () => {
     it('should return the average sleep quality for all users', () => {
         const a = new SleepRepository(sleepData, 2);
 
-        expect(a.getTotalSleepQuality()).to.equal(2);
+        expect(a.findTotalSleepQuality()).to.equal(2);
     });
     it('should return all users with an average sleep quality greater than 3 for a given week', function() {
         const a = new SleepRepository(sleepData, userId);
