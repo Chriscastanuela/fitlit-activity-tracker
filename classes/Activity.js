@@ -31,7 +31,7 @@ class Activity {
         let justTheDates = arrayOfStepGoalVictoryData.map(oneIndex => oneIndex.date);
         return justTheDates;
     }
-    /*8.*/stairRecord(user) {
+    /*8.*/stairRecord() {
         let flightCounts = this.data.map(flightCount => flightCount.flightsOfStairs);
         let sortedFlightCount = flightCounts.sort((a,b) => a-b);
         let highest = sortedFlightCount.slice(-1)[0];

@@ -153,7 +153,7 @@ describe('Activity', () => {
     it("8. should return a user/'s all time stair climbing record", () => {
         
         const a = new Activity(activityData);
-        expect(a.daysWhereTheyBeatStepGoal(user)).to.equal(46);
+        expect(a.stairRecord()).to.equal(46);
     });
 });
 
