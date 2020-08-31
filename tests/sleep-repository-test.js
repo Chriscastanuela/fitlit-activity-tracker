@@ -202,8 +202,13 @@ describe('SleepRepository', () => {
             }
         ]);
     });
+    it('should return the average sleep average', () => {
+        const a = new SleepRepository(sleepData, 2);
+
+        expect(a.findSleepAvg()).to.equal(1);
+    });
     it('should return the average sleep quality for all users', () => {
-        const a = new SleepRepository(sleepData, userId);
+        const a = new SleepRepository(sleepData, 2);
 
         expect(a.getTotalSleepQuality()).to.equal(2);
     });

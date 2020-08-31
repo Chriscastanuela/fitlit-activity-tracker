@@ -4,8 +4,12 @@ class SleepRepository {
         this.userId = userId;
         this.userSleepRecord = this.findUserSleepData()
     }
-    findUserSleepData(){
+    findUserSleepData() {
       return this.data.filter(user => user.userID === this.userId)
+    }
+    findSleepAvg() {
+      return Math.floor(this.userSleepRecord.reduce((acc, user) => {
+        return acc + user.hoursSlept}, 1) / this.userSleepRecord.length);
     }
     getTotalSleepQuality() {
         var sum = this.sleepData.reduce((avg, object) => {
