@@ -39,13 +39,13 @@ userInfoCard.innerHTML = `<div class="userContainer">
 }
 
 function displayUserLastDayOfSleep(date, id){
-    todaySleep.innerHTML = `<p>${userSleep.findDailySleep(date, id)}</p>
-    ${userSleep.findDailySleepQuality(date, id)}</p>`
+    todaySleep.innerHTML = `<p>Amount of sleep in the last 24 hours: ${userSleep.findDailySleep(date, id)} hours</p>
+    <p>Quality of sleep in the last 24 hours: ${userSleep.findDailySleepQuality(date, id)}</p>`
 }
 
-function dashboardOnload() {
+function dashboardOnload(date, id) {
     displayNewUser();
-    displayUserLastDayOfSleep();
+    displayUserLastDayOfSleep(date, id);
 }
 
 window.onload = dashboardOnload("2019/09/22", currentUser.id);
