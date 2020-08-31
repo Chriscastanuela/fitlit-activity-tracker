@@ -202,10 +202,15 @@ describe('SleepRepository', () => {
             }
         ]);
     });
-    it('should return the average sleep average', () => {
+    it('should return the sleep average', () => {
         const a = new SleepRepository(sleepData, 2);
 
         expect(a.findSleepAvg()).to.equal(1);
+    });
+    it('should return the average sleep quality', () => {
+        const a = new SleepRepository(sleepData, 2);
+
+        expect(a.findSleepQualityAvg()).to.equal(2);
     });
     it('should return the average sleep quality for all users', () => {
         const a = new SleepRepository(sleepData, 2);

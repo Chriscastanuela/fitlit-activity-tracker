@@ -11,6 +11,10 @@ class SleepRepository {
       return Math.floor(this.userSleepRecord.reduce((acc, user) => {
         return acc + user.hoursSlept}, 1) / this.userSleepRecord.length);
     }
+    findSleepQualityAvg(){
+      return Math.floor(this.userSleepRecord.reduce((acc,user) => {
+        return acc + user.sleepQuality}, 1) / this.userSleepRecord.length)
+    }
     getTotalSleepQuality() {
         var sum = this.sleepData.reduce((avg, object) => {
 
