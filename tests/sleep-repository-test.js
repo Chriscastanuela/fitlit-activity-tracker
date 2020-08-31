@@ -127,28 +127,33 @@ let sleepData = [
 
 describe('SleepRepository', () => {
     it('should be a function', function() {
-        const a = new SleepRepository(sleepData);
+        const a = new SleepRepository(sleepData, userId);
 
         expect(SleepRepository).to.be.a('function');
     });
     it('should be an instance of SleepRepository', function() {
-        const a = new SleepRepository(sleepData);
+        const a = new SleepRepository(sleepData, userId);
 
         expect(a).to.be.an.instanceof(SleepRepository);
     });
+    it.only('should find the full sleep record for a user', () => {
+        const a = new SleepRepository(sleepData, userId);
+
+        expect(a.findUserSleepData()).to.equal();
+    });
     it('should return the average sleep quality for all users', () => {
-        const a = new SleepRepository(sleepData);
+        const a = new SleepRepository(sleepData, userId);
 
         expect(a.getTotalSleepQuality()).to.equal(2);
     });
     it('should return all users with an average sleep quality greater than 3 for a given week', function() {
-        const a = new SleepRepository(sleepData);
+        const a = new SleepRepository(sleepData, userId);
 
         expect(a).to.equal();
     });
     it('should return the users who had the most sleep for a given day', function() {
         const a = new SleepRepository(sleepData);
-        
+
         expect(a).to.equal();
     });
 });

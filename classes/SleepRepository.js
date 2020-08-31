@@ -1,6 +1,8 @@
 class SleepRepository {
-    constructor(sleepData) {
+    constructor(sleepData, userId) {
         this.sleepData = sleepData;
+        this.userId = id;
+        this.userSleepRecord = this.findUserSleepData()
     }
     getTotalSleepQuality() {
         var sum = this.sleepData.reduce((avg, object) => {
