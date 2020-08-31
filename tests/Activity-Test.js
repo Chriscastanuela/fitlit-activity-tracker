@@ -14,7 +14,7 @@ let activityData = [
     {
     "userID": 1,
     "date": "2019/09/21",
-    "numSteps": 11111111111111,
+    "numSteps": 1228,
     "minutesActive": 2,
     "flightsOfStairs": 19
     },
@@ -108,14 +108,12 @@ describe('Activity', () => {
         expect(a).to.be.an.instanceof(Activity);
     });
 
-    // it("3. should average all user/'s amount of stairs climbed on a given date", () => {
+    it("3. should tell you how many miles a user has walked", () => {
         
-    //     const a = new Activity(activityData);
+        const a = new Activity(activityData);
 
-    //     console.loga.data
-
-    //     expect(a.stairsClimbedOnAGivenDate("2019/09/22")).to.equal(20);
-    // });
+        expect(a.milesWalked("2019/09/21", currentUser)).to.equal(1);
+    });
 
     it("4. should average a user/'s amount of minutes active for a given week", () => {
         
@@ -139,7 +137,6 @@ describe('Activity', () => {
         
         const a = new Activity(activityData);
         expect(a.daysWhereTheyBeatStepGoal(currentUser)).to.deep.equal([
-            "2019/09/21",
             "2019/09/24",
             "2019/09/25",
             "2019/09/26",
@@ -153,7 +150,7 @@ describe('Activity', () => {
     it("8. should return a user/'s all time stair climbing record", () => {
         
         const a = new Activity(activityData);
-        expect(a.stairRecord()).to.equal(46);
+        expect(a.stairRecord(currentUser)).to.equal(46);
     });
 });
 

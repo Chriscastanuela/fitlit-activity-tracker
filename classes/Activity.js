@@ -2,6 +2,15 @@ class Activity {
     constructor(data) {
         this.data = data;
     };
+    /*3.*/milesWalked(date, user) {
+        /*3.*/
+        let dateData = this.data.find(oneDate => oneDate.date == date);
+        let stepsNeeded = 5280/user.strideLength;
+        let roundedStepsNeeded = Math.floor(stepsNeeded);
+        let milesWalked = dateData.numSteps/roundedStepsNeeded;
+        let roundedMilesWalked = Math.floor(milesWalked);
+        return roundedMilesWalked;
+    }
     /*4.*/averageMinutesActiveForAGivenWeek(startDate, endDate) {
         let sevenDayData = this.data.filter(data => data.date >= startDate && data.date <= endDate);
         let sevenDayMinutes = sevenDayData.map(oneData => oneData.minutesActive);
@@ -43,11 +52,3 @@ module.exports = Activity;
 if (typeof module !== "undefined") {
     module.exports = Activity;
 };
-/*
-3. For a specific day (specified by a date), 
-    return the miles a user has walked based on their number of steps (use their strideLength to help calculate this)
-6. For a user, 
-    did they reach their step goal for a given day (specified by a date)?
-7. For a user,
-    find all the days where they exceeded their step goal
-*/
