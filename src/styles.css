@@ -1,12 +1,22 @@
 * {
+  border: none;
+  box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
+}
+
+html {
+
 }
 
 body {
   margin: 0;
-  padding: 0;
+  padding: 26px;
   min-width: 1024px;
-  min-height:100vh;
+  min-height:726px;
+}
+
+.Mid-Left {
+  padding-right: 40px;
 }
 
 .Hi-User {
@@ -14,5 +24,18 @@ body {
 }
 
 .Mid {
+  display: flex;
   background-color: #f5c050;
+  padding-top: 2px;
+  padding-left: 20px;
+  padding-bottom: 2px;
+}
+
+.Mid-Right {
+  display: flex;
+  flex-direction: column;
+}
+
+#icon {
+  background-color: cornflowerblue;
 }
