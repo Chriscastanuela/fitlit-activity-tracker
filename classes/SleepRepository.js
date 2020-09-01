@@ -33,13 +33,14 @@ class SleepRepository {
       }, 0)
       return datesRecorded.filter(user =>user.hoursSlept === mostSleep)
       }
-    findUsersOverWeek(startDate, endDate) {
+    findUsersOverWeek(startDate, endDate, userId) {
       var sevenDays = this.data.filter(day => day.date >= startDate && day.date <= endDate);
 
       var sleepQuality = sevenDays.reduce((obj, user) => {
         if(!obj[user.userID]) {
           obj[user.userID] = []
         }
+        console.log(user.userId)
         obj[user.userId].push(user.sleepQuality)
         return obj
       }, {})

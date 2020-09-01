@@ -5,7 +5,9 @@
 }
 
 html {
-
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
@@ -19,6 +21,13 @@ body {
   padding-right: 40px;
 }
 
+.Main-User-Icon {
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+}
+
 .Hi-User {
   font-size: 700;
 }
@@ -29,6 +38,10 @@ body {
   padding-top: 2px;
   padding-left: 20px;
   padding-bottom: 2px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 
 .Mid-Right {
@@ -38,4 +51,12 @@ body {
 
 #icon {
   background-color: cornflowerblue;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+}
+
+.Bottom {
+  display: flex;
 }
