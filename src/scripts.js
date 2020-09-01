@@ -1,6 +1,3 @@
-// const Hydration = require("../classes/Hydration");
-// const Activity = require("../classes/Activity");
-
 var userGreeting = document.querySelector(".Hi-User");
 var userStepGoalDis = document.querySelector(".Step-Goals");
 var userProfileImage = document.querySelector(".Main-User-Icon");
@@ -20,13 +17,38 @@ var userInfoCard = document.querySelector(".Mid");
 var todaySleep = document.querySelector("#S-L");
 let weekSleep = document.querySelector("#S-M");
 let avgSleep = document.querySelector("#S-R");
+let todayHydration = document.querySelector("#H-L");
+let weekHydration = document.querySelector("#H-M");
 
+//----------------------------Class Instantiations
 let userRepository = new UserRepository(userData);
 let currentUser = new User(userRepository.returnData(20))
 let sleepRepository = new SleepRepository(sleepData);
 let userSleep = new UserSleep(sleepData);
 let activityRepository = new ActivityRepository(activityData);
 let activity = new Activity(activityRepository.allDataOfOneUser(1));
+let hydrationRepository = new HydrationRepository(hydrationData);
+let hydration = new Hydration(hydrationRepository.returnData(20));
+
+// var ctx = document.getElementById('myChart').getContext('2d');
+// var chart = new Chart(ctx, {
+//     // The type of chart we want to create
+//     type: 'line',
+
+//     // The data for our dataset
+//     data: {
+//         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+//         datasets: [{
+//             label: 'My First dataset',
+//             backgroundColor: 'rgb(255, 99, 132)',
+//             borderColor: 'rgb(255, 99, 132)',
+//             data: [0, 10, 5, 2, 20, 30, 45]
+//         }]
+//     },
+
+//     // Configuration options go here
+//     options: {}
+// });
 
 function displayNewUser() {
     userGreeting.innerHTML += `<h2>Hello ${currentUser.returnFirstName()}!</h2>`;
@@ -54,14 +76,26 @@ function displayAllTimeSleepAverages(user) {
     <p>Average hours slept: ${userSleep.findAvgDailySleep(user)}</p>`
 }
 
+function displayTodayHydration(date) {
+    todayHydration.innerHTML = `Today's hydration info: ${hydration.flOzOnAGivenDay(date)} ounces`
+}
+
+function displayTodayHydration(date) {
+    todayHydration.innerHTML = `Today's hydration info: ${hydration.flOzOnAGivenDay(date)} ounces`
+}
+
+function displayWeeklyyHydration() {
+    weekHydration.innerHTML = `Weekly hydration info: ${hydration.lastWeekOfWaterData()}`
+}
+
+//------------------------------------------Onload
 window.onload = displayNewUser();
 window.onload = displayUserLastDayOfSleep("2019/09/22", currentUser.id);
 window.onload = displayUserLastWeekOfSleep("2019/09/15", "2019/09/22", currentUser.id)
 window.onload = displayAllTimeSleepAverages(currentUser.id);
-/*
-Latest week's sleep
-    Hours slept
-    quality of sleep last day
+window.onload = displayTodayHydration("2019/09/22");
+window.onload = displayWeeklyyHydration();
 
-For a user, their all-time average sleep quality and all-time average number of hours slept
+/*
+
 */
