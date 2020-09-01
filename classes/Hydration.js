@@ -12,9 +12,7 @@ class Hydration {
         
         let sortedData = this.userHydrationData.sort((a, b) =>a - b);
 
-        let lastSeven = sortedData.slice(-7);/**/
-
-        console.log("LastSeven", lastSeven);
+        let lastSeven = sortedData.slice(-7);
 
         let noId = lastSeven.map(index => {
             let newIndex = {
@@ -23,21 +21,8 @@ class Hydration {
             };
             return newIndex;
         });
-        console.log(noId);
         return noId;
     };
-    // lastWeekOfWaterData() {
-    //     let sortedData = this.userHydrationData.sort((a, b) =>a - b);
-    //     let lastSeven = sortedData.slice(-7);
-    //     //
-    //     console.log(lastSeven);
-    //     //
-    //     let lastSevenOzOnly = lastSeven.map(object => {
-    //         return object.numOunces;
-    //     })
-    //     console.log(lastSevenOzOnly);
-    //     return lastSevenOzOnly;
-    // };
 };
 
 if (typeof module !== "undefined") {
