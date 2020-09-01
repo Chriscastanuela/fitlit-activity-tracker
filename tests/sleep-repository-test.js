@@ -252,7 +252,7 @@ describe('SleepRepository', () => {
         }
       ]);
     });
-    it('should return all users with an average sleep quality greater than 3 for a given week', function() {
+    it.only('should return all users with an average sleep quality greater than 3 for a given week', function() {
         const a = new SleepRepository(sleepData, 2);
 
         expect(a.findUsersOverWeek("2019/07/10", "2019/07/17")).to.equal([]);

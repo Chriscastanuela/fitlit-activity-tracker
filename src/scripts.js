@@ -29,8 +29,8 @@ let activityRepository = new ActivityRepository(activityData);
 let activity = new Activity(activityRepository.allDataOfOneUser(1));
 
 function displayNewUser() {
-    userGreeting.innerHTML = `<p>Hello ${currentUser.returnFirstName()}!</p>`;
-    userInfoCard.innerHTML = `<div class="userContainer">
+    userGreeting.innerHTML += `<h2>Hello ${currentUser.returnFirstName()}!</h2>`;
+    userInfoCard.innerHTML += `<div class="userContainer">
     <h4><b>${currentUser.returnFirstName()}'s info</b></h4>
     <p>${currentUser.address}</p>
     <p>${currentUser.email}</p>

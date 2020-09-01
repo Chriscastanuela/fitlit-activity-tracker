@@ -1,0 +1,62 @@
+* {
+  border: none;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html {
+  margin: 0 auto;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  padding: 26px;
+  min-width: 1024px;
+  min-height:726px;
+}
+
+.Mid-Left {
+  padding-right: 40px;
+}
+
+.Main-User-Icon {
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+}
+
+.Hi-User {
+  font-size: 700;
+}
+
+.Mid {
+  display: flex;
+  background-color: #f5c050;
+  padding-top: 2px;
+  padding-left: 20px;
+  padding-bottom: 2px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+.Mid-Right {
+  display: flex;
+  flex-direction: column;
+}
+
+#icon {
+  background-color: cornflowerblue;
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+  border-bottom-left-radius: 1px;
+  border-bottom-left-radius: 1px;
+}
+
+.Bottom {
+  display: flex;
+}
