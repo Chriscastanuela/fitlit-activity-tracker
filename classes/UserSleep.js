@@ -20,8 +20,19 @@ class UserSleep {
     }
 
     findUserWeeklyData(startDate, endDate, userId) {
-      return this.findUserData(userId).filter(day =>
+      let lastWeekSleepData = this.findUserData(userId).filter(day =>
         day.date >= startDate && day.date <= endDate);
+      let newWeeklySleepData = lastWeekSleepData.map(index => {
+        let newIndex = {
+          date: index.date,
+          hoursSlept: index.hoursSlept,
+          sleepQuality: index.sleepQuality
+        };
+        console.log(newIndex);
+        return newIndex;
+      })
+      console.log(newWeeklySleepData);
+      return newWeeklySleepData;
     }
 
     findAvgDailySleep(userId) {
