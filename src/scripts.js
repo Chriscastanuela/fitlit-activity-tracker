@@ -19,6 +19,10 @@ let weekSleep = document.querySelector("#S-M");
 let avgSleep = document.querySelector("#S-R");
 let todayHydration = document.querySelector("#H-L");
 let weekHydration = document.querySelector("#H-M");
+let todaySteps = document.querySelector("#SC-L");
+let todayMinutes = document.querySelector("#M-L");
+let weekSteps = document.querySelector("#SC-M");
+let avgSteps = document.querySelector("#SC-R");
 
 //----------------------------Class Instantiations
 let userRepository = new UserRepository(userData);
@@ -30,6 +34,7 @@ let activity = new Activity(activityRepository.allDataOfOneUser(1));
 let hydrationRepository = new HydrationRepository(hydrationData);
 let hydration = new Hydration(hydrationRepository.returnData(20));
 
+//---------------------------Chart Scripts
 // var ctx = document.getElementById('myChart').getContext('2d');
 // var chart = new Chart(ctx, {
 //     // The type of chart we want to create
@@ -50,6 +55,7 @@ let hydration = new Hydration(hydrationRepository.returnData(20));
 //     options: {}
 // });
 
+//---------------------------Function Declarations
 function displayNewUser() {
     userGreeting.innerHTML += `<h2>Hello ${currentUser.returnFirstName()}!</h2>`;
     userInfoCard.innerHTML += `<div class="userContainer">
@@ -81,11 +87,26 @@ function displayTodayHydration(date) {
 }
 
 function displayTodayHydration(date) {
-    todayHydration.innerHTML = `Today's hydration info: ${hydration.flOzOnAGivenDay(date)} ounces`
+    todayHydration.innerHTML = `Today's you drank ${hydration.flOzOnAGivenDay(date)} ounces of water`
 }
 
 function displayWeeklyyHydration() {
     weekHydration.innerHTML = `Weekly hydration info: ${hydration.lastWeekOfWaterData()}`
+}
+
+function displayTodaySteps(date, user) {
+    todaySteps.innerHTML = `Today you took ${activity.stepsTakenOnAGivenDate(date)} steps and walked ${activity.milesWalked(date, user)} miles.<br><br>`
+    avgSteps.innerHTML = `Everyone else's step data: <br>
+    Average minutes active: ${activityRepository.allUsersMinutesActiveOnAGivenDate(date)}<br>
+    Average stairs climbed: ${activityRepository.stairsClimbedOnAGivenDate(date)}<br><br>`
+}
+
+function displayTodayMinutesActive(date) {
+    todayMinutes.innerHTML = `Today you were active for ${activity.oneUserMinutesActiveOnAGivenDate(date)} minutes`
+}
+
+function displayWeekSteps(startDate, endDate) {
+    weekSteps.innerHTML = `Step counts for the past week: ${activity.findSevenDayStepCount(startDate, endDate)}`
 }
 
 //------------------------------------------Onload
@@ -95,6 +116,9 @@ window.onload = displayUserLastWeekOfSleep("2019/09/15", "2019/09/22", currentUs
 window.onload = displayAllTimeSleepAverages(currentUser.id);
 window.onload = displayTodayHydration("2019/09/22");
 window.onload = displayWeeklyyHydration();
+window.onload = displayTodaySteps("2019/09/22", currentUser);
+window.onload = displayTodayMinutesActive("2019/09/22");
+window.onload = displayWeekSteps("2019/09/15", "2019/09/22");
 
 /*
 
