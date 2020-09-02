@@ -13,6 +13,11 @@ class HydrationRepository {
         let average = sum / userHydrationDataList.length;
         return average;
     }
+    returnData(userId) {
+        return this.hydrationData.filter(index => {
+            return index.userID == userId;
+        })
+    }
 }
 
 if (typeof module !== "undefined") {

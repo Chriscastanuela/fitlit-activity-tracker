@@ -11,6 +11,14 @@ class Activity {
         let roundedMilesWalked = Math.floor(milesWalked);
         return roundedMilesWalked;
     }
+    stepsTakenOnAGivenDate(date) {
+        let dateData = this.data.find(dataObject => dataObject.date == date)
+        return dateData.numSteps;
+    };
+    oneUserMinutesActiveOnAGivenDate(date) {
+        let dateData = this.data.find(dataObject => dataObject.date == date)
+        return dateData.minutesActive;
+    };
     /*4.*/averageMinutesActiveForAGivenWeek(startDate, endDate) {
         let sevenDayData = this.data.filter(data => data.date >= startDate && data.date <= endDate);
         let sevenDayMinutes = sevenDayData.map(oneData => oneData.minutesActive);
@@ -46,6 +54,11 @@ class Activity {
         let highest = sortedFlightCount.slice(-1)[0];
         return highest;
     }
+    findSevenDayStepCount(startDate, endDate) {
+        let sevenDayData = this.data.filter(day => day.date >= startDate && day.date <= endDate)
+        let sevenDaysOfSteps = sevenDayData.map(day => day.numSteps);
+        return sevenDaysOfSteps;
+    };
 };
 
 if (typeof module !== "undefined") {

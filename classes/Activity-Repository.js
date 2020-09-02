@@ -21,19 +21,6 @@ class ActivityRepository {
         }, 0)/stairsClimbed.length;
         return avgStairsClimbed;
     };
-    stepsTakenOnAGivenDate(date) {
-        let stepsTaken = [];
-        this.activityData.forEach(oneData => {
-            if (oneData.date == date) {
-                stepsTaken.push(oneData.numSteps);
-            }
-        })
-        let avgStepsTaken = stepsTaken.reduce((acc, oneData) => {
-            acc += oneData;
-            return acc;
-        }, 0)/stepsTaken.length;
-        return avgStepsTaken;
-    };
     allUsersMinutesActiveOnAGivenDate(date) {
         let minutesActive = [];
         this.activityData.forEach(oneData => {
@@ -46,14 +33,6 @@ class ActivityRepository {
             return acc;
         }, 0)/minutesActive.length;
         return avgMinutesActive;
-    };
-    oneUserMinutesActiveOnAGivenDate(user, date) {
-        let correctObject = this.activityData.find(oneData => {
-            if (oneData.date == date && oneData.userID == user) {
-                return oneData.minutesActive;
-            }
-        })
-        return correctObject.minutesActive;
     };
 };
 

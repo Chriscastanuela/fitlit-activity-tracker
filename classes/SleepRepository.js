@@ -59,8 +59,28 @@ class SleepRepository {
         }
       }).filter(el => el !== undefined)
     }
+    // findUsersOverWeek(startDate, endDate, userId) {
+    //   let givenWeekData = this.data.filter(oneData => oneData.date >= startDate && oneData.date <= endDate);
+    //   //
+    //   console.log(givenWeekData);
+    //   //
+    //   let userIds = givenWeekData.map(oneData => oneData.userID);
+    //   //
+    //   console.log(userIds);
+    //   //
+    //   let 
+    //   //
+    //   let userSleepAverages = givenWeekData.reduce((acc, oneData) => {
+    //     acc += oneData.hoursSlept;
+    //   }, 0);
+    // }
 }
 
 if (typeof module !== 'undefined') {
   module.exports = SleepRepository;
 }
+/*
+
+
+
+*/
