@@ -23,6 +23,7 @@ let todaySteps = document.querySelector("#SC-L");
 let todayMinutes = document.querySelector("#M-L");
 let weekSteps = document.querySelector("#SC-M");
 let avgSteps = document.querySelector("#SC-R");
+let todayDate = document.querySelector(".Current-Date");
 
 //----------------------------Class Instantiations
 let userRepository = new UserRepository(userData);
@@ -34,28 +35,11 @@ let activity = new Activity(activityRepository.allDataOfOneUser(1));
 let hydrationRepository = new HydrationRepository(hydrationData);
 let hydration = new Hydration(hydrationRepository.returnData(20));
 
-//---------------------------Chart Scripts
-// var ctx = document.getElementById('myChart').getContext('2d');
-// var chart = new Chart(ctx, {
-//     // The type of chart we want to create
-//     type: 'line',
-
-//     // The data for our dataset
-//     data: {
-//         labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-//         datasets: [{
-//             label: 'My First dataset',
-//             backgroundColor: 'rgb(255, 99, 132)',
-//             borderColor: 'rgb(255, 99, 132)',
-//             data: [0, 10, 5, 2, 20, 30, 45]
-//         }]
-//     },
-
-//     // Configuration options go here
-//     options: {}
-// });
-
 //---------------------------Function Declarations
+function displayDate(date) {
+    todayDate.innerHTML = `${date}`
+}
+
 function displayNewUser() {
     userGreeting.innerHTML += `<h2>Hello ${currentUser.returnFirstName()}!</h2>`;
     userInfoCard.innerHTML += `<div class="userContainer">
@@ -91,7 +75,8 @@ function displayTodayHydration(date) {
 }
 
 function displayWeeklyyHydration() {
-    weekHydration.innerHTML = `Weekly hydration info: ${hydration.lastWeekOfWaterData()}`
+    console.log(hydration.lastWeekOfWaterData());
+    weekHydration.innerHTML = `Weekly hydration info: ${(hydration.lastWeekOfWaterData()[0].date)}: ${hydration.lastWeekOfWaterData()[0].numOunces} ounces`;
 }
 
 function displayTodaySteps(date, user) {
@@ -106,7 +91,49 @@ function displayTodayMinutesActive(date) {
 }
 
 function displayWeekSteps(startDate, endDate) {
-    weekSteps.innerHTML = `Step counts for the past week: ${activity.findSevenDayStepCount(startDate, endDate)}`
+    // ${activity.findSevenDayStepCount(startDate, endDate)}
+    weekSteps.innerHTML = `Step counts for the past week:`
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ["2019/09/15", "2019/09/16", "2019/09/17", "2019/09/18", "2019/09/19", "2019/09/20", "2019/09/21"],
+        datasets: [{
+            label: 'Number of Steps',
+            data: [10028,11067,4901,9974,12083,14000,5711,8072],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                    min: 0,
+                    max: 16000,
+                    // stepSize: 100,
+                }
+            }]
+        }
+    }
+});
 }
 
 //------------------------------------------Onload
@@ -118,7 +145,8 @@ window.onload = displayTodayHydration("2019/09/22");
 window.onload = displayWeeklyyHydration();
 window.onload = displayTodaySteps("2019/09/22", currentUser);
 window.onload = displayTodayMinutesActive("2019/09/22");
-window.onload = displayWeekSteps("2019/09/15", "2019/09/22");
+window.onload = displayWeekSteps("2019/09/15", "2019/09/21");
+window.onload = displayDate("09/03/2020");
 
 /*
 
