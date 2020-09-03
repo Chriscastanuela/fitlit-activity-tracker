@@ -22,14 +22,15 @@ body {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  text-align: center;
   padding-right: 40px;
 }
 
 .Main-User-Icon {
     padding-top: 4px;
     border-radius: 50%;
-    height: 7em;
-    width: 7em;
+    height: 10em;
+    width: 10em;
 }
 
 .Hi-User {
@@ -89,6 +90,7 @@ body {
 }
 
 .Bottom-Left {
+  padding: 1em;
   overflow-y: scroll;
   overflow-wrap: break-word;
   background-color: #E0EEF8;
@@ -101,6 +103,7 @@ body {
 }
 
 .Bottom-Mid {
+  padding: 1em;
   overflow-y: scroll;
   overflow-wrap: break-word;
   background-color: #E0EEF8;
@@ -113,6 +116,7 @@ body {
 }
 
 .Bottom-Right {
+  padding: 1em;
   overflow-y: scroll;
   overflow-wrap: break-word;
   background-color: #E0EEF8;
@@ -155,6 +159,11 @@ body {
   padding: .5em;
   height: 6em;
   width: 6em;
+}
+
+.Section-Title {
+  font-size: x-large;
+  text-align: center;
 }
 
 .Bottom {
