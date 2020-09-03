@@ -110,7 +110,7 @@ function displayTodayHydration(date) {
 }
 
 function displayTodayHydration(date) {
-    todayHydration.innerHTML = `Today's you drank ${hydration.flOzOnAGivenDay(date)} ounces of water`
+    todayHydration.innerHTML = `Today you drank ${hydration.flOzOnAGivenDay(date)} ounces of water`
 }
 
 function displayWeeklyyHydration() {
@@ -213,7 +213,7 @@ function displayWeekSteps(startDate, endDate) {
                 ticks: {
                     beginAtZero: true,
                     min: 0,
-                    max: 16000,
+                    max: 20000,
                     // stepSize: 100,
                 }
             }]
