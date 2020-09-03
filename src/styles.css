@@ -65,6 +65,7 @@ body {
 
 .Mid {
   display: flex;
+  align-items: center;
   background-color: #f5c050;
   padding-top: 2px;
   padding-left: 20px;
@@ -77,7 +78,7 @@ body {
 
 .Mid-Right {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
 }
 
 .Bottom {
@@ -123,10 +124,36 @@ body {
   max-height: 600px;
 }
 
-#icon {
-
-border-radius: 50%;
+.Friend-Icons-And-Names {
+  display: flex;
 }
+
+
+#icon {
+border-radius: 50%;
+padding
+}
+.icon-1 {
+border-radius: 50%;
+height: 4em;
+width: 4em;
+}
+.icon-2 {
+border-radius: 50%;
+height: 4em;
+width: 4em;
+}
+.icon-3 {
+border-radius: 50%;
+height: 4em;
+width: 4em;
+}
+.icon-4 {
+border-radius: 50%;
+height: 4em;
+width: 4em;
+}
+
 
 .Bottom {
   display: flex;
