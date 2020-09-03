@@ -18,14 +18,19 @@ body {
 }
 
 .Mid-Left {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
   padding-right: 40px;
 }
 
 .Main-User-Icon {
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border-bottom-left-radius: 1px;
+    padding-top: 4px;
+    border-radius: 50%;
+    height: 10em;
+    width: 10em;
 }
 
 .Hi-User {
@@ -61,6 +66,7 @@ body {
 
 .Mid {
   display: flex;
+  align-items: center;
   background-color: #f5c050;
   padding-top: 2px;
   padding-left: 20px;
@@ -73,7 +79,7 @@ body {
 
 .Mid-Right {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
 }
 
 .Bottom {
@@ -84,6 +90,7 @@ body {
 }
 
 .Bottom-Left {
+  padding: 1em;
   overflow-y: scroll;
   overflow-wrap: break-word;
   background-color: #E0EEF8;
@@ -96,6 +103,7 @@ body {
 }
 
 .Bottom-Mid {
+  padding: 1em;
   overflow-y: scroll;
   overflow-wrap: break-word;
   background-color: #E0EEF8;
@@ -108,6 +116,7 @@ body {
 }
 
 .Bottom-Right {
+  padding: 1em;
   overflow-y: scroll;
   overflow-wrap: break-word;
   background-color: #E0EEF8;
@@ -119,12 +128,42 @@ body {
   max-height: 600px;
 }
 
+.Friend-Icons-And-Names {
+  display: flex;
+  padding: 1em;
+}
+
 #icon {
-  background-color: cornflowerblue;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border-bottom-left-radius: 1px;
+  border-radius: 50%;
+}
+.icon-1 {
+  border-radius: 50%;
+  padding: .5em;
+  height: 6em;
+  width: 6em;
+}
+.icon-2 {
+  border-radius: 50%;
+  padding: .5em;
+  height: 6em;
+  width: 6em;
+}
+.icon-3 {
+  border-radius: 50%;
+  padding: .5em;
+  height: 6em;
+  width: 6em;
+}
+.icon-4 {
+  border-radius: 50%;
+  padding: .5em;
+  height: 6em;
+  width: 6em;
+}
+
+.Section-Title {
+  font-size: x-large;
+  text-align: center;
 }
 
 .Bottom {
