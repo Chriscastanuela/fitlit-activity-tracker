@@ -18,14 +18,18 @@ body {
 }
 
 .Mid-Left {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
   padding-right: 40px;
 }
 
 .Main-User-Icon {
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border-bottom-left-radius: 1px;
+    padding-top: 4px;
+    border-radius: 50%;
+    height: 7em;
+    width: 7em;
 }
 
 .Hi-User {
@@ -120,11 +124,8 @@ body {
 }
 
 #icon {
-  background-color: cornflowerblue;
-  border-top-left-radius: 1px;
-  border-top-right-radius: 1px;
-  border-bottom-left-radius: 1px;
-  border-bottom-left-radius: 1px;
+
+border-radius: 50%;
 }
 
 .Bottom {
