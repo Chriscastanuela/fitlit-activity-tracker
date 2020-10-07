@@ -1,10 +1,6 @@
 # FitLit Project
-
+![gif-of-app](assets/giphy.gif)
 The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
-
-<img src="assets/peter-conlan-LEgwEaBVGMo-unsplash.jpg"
-     alt="Young woman jumping with arms raised in front of a view of mountains"
-     style="float: left; margin-right: 10px; margin-bottom: 10px;" />
 
 ## Developer
 [Christopher Castaneula](https://github.com/Chriscastanuela) <br>
@@ -31,6 +27,3 @@ Bob Gu
 - Use object and array prototype methods to perform data manipulation
 - Display information on the page while maintaining ability to test class properties and methods
 - Create a data dashboard that is easy to use and displays information in a clear way
-
-## Images
-![gif-of-app](assets/giphy.gif)
