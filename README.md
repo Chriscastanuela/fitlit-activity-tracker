@@ -1,8 +1,8 @@
 # FitLit Project
-![gif-of-app](assets/giphy.gif)
+![gif-of-app](assets/giphy.gif)<br>
 The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 
-## Developer
+## Developers
 [Christopher Castaneula](https://github.com/Chriscastanuela) <br>
 [Estelle Staffieri](https://github.com/Estaffieri)
 
