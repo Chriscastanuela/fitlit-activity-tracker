@@ -5,10 +5,6 @@
 
 The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 
-## Project Managers
-Travis Rollins <br>
-Bob Gu
-
 ## Project Links
 [Repo](https://github.com/Chriscastanuela/fitlit-activity-tracker)
 
