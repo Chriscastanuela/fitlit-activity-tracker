@@ -29,14 +29,15 @@ let avgSteps = document.querySelector("#SC-R");
 let todayDate = document.querySelector(".Current-Date");
 
 //----------------------------Class Instantiations
+let userNumber = Math.floor(Math.random()*userData.length)+1;
 let userRepository = new UserRepository(userData);
-let currentUser = new User(userRepository.returnData(20))
-let sleepRepository = new SleepRepository(sleepData);
+let currentUser = new User(userRepository.returnData(userNumber))
+let sleepRepository = new SleepRepository(sleepData, currentUser.id);
 let userSleep = new UserSleep(sleepData);
 let activityRepository = new ActivityRepository(activityData);
-let activity = new Activity(activityRepository.allDataOfOneUser(1));
+let activity = new Activity(activityRepository.allDataOfOneUser(currentUser.id));
 let hydrationRepository = new HydrationRepository(hydrationData);
-let hydration = new Hydration(hydrationRepository.returnData(20));
+let hydration = new Hydration(hydrationRepository.returnData(currentUser.id));
 
 //---------------------------Function Declarations
 function displayDate(date) {
@@ -47,11 +48,13 @@ function displayNewUser() {
     userGreeting.innerHTML += `<h2>Hello ${currentUser.returnFirstName()}!</h2>`;
     userInfoCard.innerHTML += `<div class="userContainer">
     <h4><b>${currentUser.returnFirstName()}'s info</b></h4>
-    <p>${currentUser.address}</p>
-    <p>${currentUser.email}</p>
-    <p>Stride length: ${currentUser.strideLength}</p>
-    <p>Your goal is: ${currentUser.dailyStepGoal}</p>
-    <p>Average goal of all users: ${userRepository.avgStepGoalOfAllUsers()}</p>
+    <ul>
+    <li>${currentUser.address}</li>
+    <li>${currentUser.email}</li>
+    <li>Stride length: ${currentUser.strideLength}</li>
+    <li>Your goal is: ${currentUser.dailyStepGoal}</li>
+    <li>Average goal of all users: ${userRepository.avgStepGoalOfAllUsers()}</li>
+    </ul>
     </div>`
 }
 
@@ -61,23 +64,39 @@ function displayUserLastDayOfSleep(date, id){
 }
 
 function displayUserLastWeekOfSleep(startDate, endDate, userId) {
+    let nineSixteen = userSleep.findUserWeeklyData(startDate, endDate, userId)[0].hoursSlept;
+    let nineSeventeen = userSleep.findUserWeeklyData(startDate, endDate, userId)[1].hoursSlept;
+    let nineEighteen = userSleep.findUserWeeklyData(startDate, endDate, userId)[2].hoursSlept;
+    let nineNineteen = userSleep.findUserWeeklyData(startDate, endDate, userId)[3].hoursSlept;
+    let nineTwenty = userSleep.findUserWeeklyData(startDate, endDate, userId)[4].hoursSlept;
+    let nineTwentyOne = userSleep.findUserWeeklyData(startDate, endDate, userId)[5].hoursSlept;
+    let nineTwentyTwo = userSleep.findUserWeeklyData(startDate, endDate, userId)[6].hoursSlept;
+    
     weekSleep.innerHTML = `<p>Sleep insights for the past week: <br><br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[0].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[0].hoursSlept} hours slept<br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[1].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[1].hoursSlept} hours slept<br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[2].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[2].hoursSlept} hours slept<br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[3].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[3].hoursSlept} hours slept<br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[4].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[4].hoursSlept} hours slept<br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[5].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[5].hoursSlept} hours slept<br>
-    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[6].date}: ${userSleep.findUserWeeklyData(startDate, endDate, userId)[6].hoursSlept} hours slept<br>`
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[0].date}: ${nineSixteen} hours slept<br>
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[1].date}: ${nineSeventeen} hours slept<br>
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[2].date}: ${nineEighteen} hours slept<br>
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[3].date}: ${nineNineteen} hours slept<br>
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[4].date}: ${nineTwenty} hours slept<br>
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[5].date}: ${nineTwentyOne} hours slept<br>
+    ${userSleep.findUserWeeklyData(startDate, endDate, userId)[6].date}: ${nineTwentyTwo} hours slept<br>`
     var ctx = document.getElementById('sleepChart').getContext('2d');
     var myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
         // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        labels: ["16", "17", "18", "19", "20", "21", "22"],
+        labels: ["2019/09/16", "2019/09/17", "2019/09/18", "2019/09/19", "2019/09/20", "2019/09/21", "2019/09/22"],
         datasets: [{
             label: 'Hours of sleep',
-            data: [6.1,5.3,4.2,6.7,10.5,7.7,10.9],
+            data: [
+                nineSixteen,
+                nineSeventeen,
+                nineEighteen,
+                nineNineteen,
+                nineTwenty,
+                nineTwentyOne,
+                nineTwentyTwo
+            ],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -106,31 +125,34 @@ function displayAllTimeSleepAverages(user) {
 }
 
 function displayTodayHydration(date) {
-    todayHydration.innerHTML = `Today's hydration info: ${hydration.flOzOnAGivenDay(date)} ounces`
-}
-
-function displayTodayHydration(date) {
     todayHydration.innerHTML = `Today you drank ${hydration.flOzOnAGivenDay(date)} ounces of water`
 }
 
 function displayWeeklyyHydration() {
+    let nineSixteen = hydration.lastWeekOfWaterData()[0].numOunces;
+    let nineSeventeen = hydration.lastWeekOfWaterData()[1].numOunces;
+    let nineEighteen = hydration.lastWeekOfWaterData()[2].numOunces;
+    let nineNineteen = hydration.lastWeekOfWaterData()[3].numOunces;
+    let nineTwenty = hydration.lastWeekOfWaterData()[4].numOunces;
+    let nineTwentyOne = hydration.lastWeekOfWaterData()[5].numOunces;
+    let nineTwentyTwo = hydration.lastWeekOfWaterData()[6].numOunces;
+
     weekHydration.innerHTML = `Weekly hydration info: <br><br>
-    ${(hydration.lastWeekOfWaterData()[0].date)}: ${hydration.lastWeekOfWaterData()[0].numOunces} ounces<br>
-    ${(hydration.lastWeekOfWaterData()[1].date)}: ${hydration.lastWeekOfWaterData()[1].numOunces} ounces<br>
-    ${(hydration.lastWeekOfWaterData()[2].date)}: ${hydration.lastWeekOfWaterData()[2].numOunces} ounces<br>
-    ${(hydration.lastWeekOfWaterData()[3].date)}: ${hydration.lastWeekOfWaterData()[3].numOunces} ounces<br>
-    ${(hydration.lastWeekOfWaterData()[4].date)}: ${hydration.lastWeekOfWaterData()[4].numOunces} ounces<br>
-    ${(hydration.lastWeekOfWaterData()[5].date)}: ${hydration.lastWeekOfWaterData()[5].numOunces} ounces<br>
-    ${(hydration.lastWeekOfWaterData()[6].date)}: ${hydration.lastWeekOfWaterData()[6].numOunces} ounces`
+    ${(hydration.lastWeekOfWaterData()[0].date)}: ${nineSixteen} ounces<br>
+    ${(hydration.lastWeekOfWaterData()[1].date)}: ${nineSeventeen} ounces<br>
+    ${(hydration.lastWeekOfWaterData()[2].date)}: ${nineEighteen} ounces<br>
+    ${(hydration.lastWeekOfWaterData()[3].date)}: ${nineNineteen} ounces<br>
+    ${(hydration.lastWeekOfWaterData()[4].date)}: ${nineTwenty} ounces<br>
+    ${(hydration.lastWeekOfWaterData()[5].date)}: ${nineTwentyOne} ounces<br>
+    ${(hydration.lastWeekOfWaterData()[6].date)}: ${nineTwentyTwo} ounces`
     var ctx = document.getElementById('hydrationChart').getContext('2d');
     var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        labels: ["16", "17", "18", "19", "20", "21", "22"],
+        labels: ["2019/09/16", "2019/09/17", "2019/09/18", "2019/09/19", "2019/09/20", "2019/09/21", "2019/09/22"],
         datasets: [{
             label: 'Ounces of Water',
-            data: [23,75,22,60,66,34,96],
+            data: [nineSixteen,nineSeventeen,nineEighteen,nineNineteen,nineTwenty,nineTwentyOne,nineTwentyTwo],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -177,17 +199,25 @@ function displayTodayMinutesActive(date) {
 }
 
 function displayWeekSteps(startDate, endDate) {
-    // ${activity.findSevenDayStepCount(startDate, endDate)}
-    weekSteps.innerHTML = `Step counts for the past week: ${activity.findSevenDayStepCount(startDate, endDate)}`
+    let theSteps = activity.findSevenDayStepCount(startDate, endDate);
+
+    weekSteps.innerHTML = `Step counts for the past week: </br>
+    2019/09/15: ${theSteps[0]} steps taken</br>
+    2019/09/16: ${theSteps[1]} steps taken</br>
+    2019/09/17: ${theSteps[2]} steps taken</br>
+    2019/09/18: ${theSteps[3]} steps taken</br>
+    2019/09/19: ${theSteps[4]} steps taken</br>
+    2019/09/20: ${theSteps[5]} steps taken</br>
+    2019/09/21: ${theSteps[6]} steps taken</br>
+    `
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
         labels: ["2019/09/15", "2019/09/16", "2019/09/17", "2019/09/18", "2019/09/19", "2019/09/20", "2019/09/21"],
         datasets: [{
             label: 'Number of Steps',
-            data: [11067,4901,9974,12083,14000,5711,8072],
+            data: [theSteps[0],theSteps[1],theSteps[2],theSteps[3],theSteps[4],theSteps[5],theSteps[6]],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
