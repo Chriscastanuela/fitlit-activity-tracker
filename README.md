@@ -24,5 +24,5 @@ Bob Gu
 - Write modular, reusable code that follows SRP (Single Responsibility Principle)
 - Implement a robust testing suite using TDD
 - Use object and array prototype methods to perform data manipulation
-- Display information on the page while maintaining ability to test class properties and methods
+- Display graphs on the page using Chart.js while maintaining ability to test class properties and methods
 - Create a data dashboard that is easy to use and displays information in a clear way
