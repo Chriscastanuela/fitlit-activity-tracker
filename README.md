@@ -5,8 +5,7 @@
 
 The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 
-## Project Links
-[Repo](https://github.com/Chriscastanuela/fitlit-activity-tracker)
+<!--## Project Links-->
 
 ## Setup
 - Fork the repo and clone it down into your terminal.
