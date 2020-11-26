@@ -8,11 +8,10 @@ The details of this project are outline in [this project spec](http://frontend.t
 
 <!--## Project Links-->
 
-## Setup
-- Fork the repo and clone it down into your terminal.
-- Open in text editor.
-- Read the README.
-- In the terminal, run command "open src/index.html" to interact with the app.
+## Setup* Open your terminal
+* Run `git clone https://github.com/Chriscastanuela/fitlit-activity-tracker.git fitlit`
+* Run `cd fitlit`
+* Open in your text editor
 
 ## Learning Goals
 - Follow the specification below to make a working application
