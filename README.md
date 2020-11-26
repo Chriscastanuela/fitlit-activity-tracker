@@ -8,7 +8,8 @@ The details of this project are outline in [this project spec](http://frontend.t
 
 <!--## Project Links-->
 
-## Setup* Open your terminal
+## Setup
+* Open your terminal
 * Run `git clone https://github.com/Chriscastanuela/fitlit-activity-tracker.git fitlit`
 * Run `cd fitlit`
 * Open in your text editor
