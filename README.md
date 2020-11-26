@@ -1,4 +1,4 @@
-# FitLit Project
+# FitLit Activity Tracker
 > A project by [Estelle Staffieri](https://github.com/Estaffieri) and [Christopher Castaneula](https://github.com/Chriscastanuela)</br>
 
 ![gif](https://user-images.githubusercontent.com/62910433/100301906-7154ae00-2f56-11eb-96ca-83d97f96b3d7.gif)</br>
