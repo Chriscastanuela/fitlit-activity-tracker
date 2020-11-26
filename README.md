@@ -14,10 +14,9 @@ The details of this project are outline in [this project spec](http://frontend.t
 * Open in your text editor
 
 ## Learning Goals
-- Follow the specification below to make a working application
-- Implement ES6 classes that communicate to each other as needed
-- Write modular, reusable code that follows SRP (Single Responsibility Principle)
-- Implement a robust testing suite using TDD
-- Use object and array prototype methods to perform data manipulation
 - Display graphs on the page using Chart.js while maintaining ability to test class properties and methods
+- Use object and array prototype methods to perform data manipulation
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement ES6 classes that communicate to each other as needed
+- Implement a robust testing suite using TDD
 - Create a data dashboard that is easy to use and displays information in a clear way
