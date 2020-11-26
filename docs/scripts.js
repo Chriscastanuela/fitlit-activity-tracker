@@ -26,7 +26,7 @@ let todaySteps = document.querySelector("#SC-L");
 let todayMinutes = document.querySelector("#M-L");
 let weekSteps = document.querySelector("#SC-M");
 let avgSteps = document.querySelector("#SC-R");
-let todayDate = document.querySelector(".Current-Date");
+let todaysDate = document.querySelector(".Current-Date");
 
 //----------------------------Class Instantiations
 let userNumber = Math.floor(Math.random()*userData.length)+1;
@@ -41,13 +41,13 @@ let hydration = new Hydration(hydrationRepository.returnData(currentUser.id));
 
 //---------------------------Function Declarations
 function displayDate(date) {
-    todayDate.innerHTML = `${date}`
+    todaysDate.innerHTML = `${date}`
 }
 
 function displayNewUser() {
     userGreeting.innerHTML += `<h2>Hello ${currentUser.returnFirstName()}!</h2>`;
     userInfoCard.innerHTML += `<div class="userContainer">
-    <h4><b>${currentUser.returnFirstName()}'s info</b></h4>
+    <h4><b class='topRightName'>${currentUser.returnFirstName()}</b></h4><br>
     <ul>
     <li>${currentUser.address}</li>
     <li>${currentUser.email}</li>
@@ -253,6 +253,7 @@ function displayWeekSteps(startDate, endDate) {
 }
 
 //------------------------------------------Onload
+window.onload = displayDate(date);
 window.onload = displayNewUser();
 window.onload = displayUserLastDayOfSleep("2019/09/22", currentUser.id);
 window.onload = displayUserLastWeekOfSleep("2019/09/16", "2019/09/22", currentUser.id)
@@ -262,4 +263,3 @@ window.onload = displayWeeklyyHydration();
 window.onload = displayTodaySteps("2019/09/22", currentUser);
 window.onload = displayTodayMinutesActive("2019/09/22");
 window.onload = displayWeekSteps("2019/09/15", "2019/09/21");
-window.onload = displayDate(date);

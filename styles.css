@@ -1,7 +1,8 @@
 * {
   border: none;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
 }
 
 html {
@@ -36,42 +37,43 @@ body {
 
 .Hi-User {
   font-size: 700;
+  font-family: 'Yellowtail', cursive;
 }
 
-.Top {
-  margin-top: .5%;
-  display: grid;
-  background-color: #172C49;
-  min-width: 1024px;
-  min-height: 50px;
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  border-bottom-left-radius: 7px;
-  justify-content: center;
+h4 {
+  margin: 0;
 }
 
 .Current-Date {
-  margin-top: .1%;
+  margin-left: 70px;
+  margin-bottom: 10px;
+
   display: grid;
-  background-color: #EDEDF1;
-  min-width: 120px;
-  min-height: 50px;
-  border-top-left-radius: 80px;
-  border-top-right-radius: 80px;
-  border-bottom-right-radius: 80px;
-  border-bottom-left-radius: 80px;
   justify-content: center;
   align-content: center;
+  min-height: 50px;
+  border-radius: 80px;
+  width: 140px;
+  background-color: #172C49;
+  color: #EDEDF1;
+  font-family: 'Yellowtail', cursive;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-size: xx-large;
+  box-shadow: 5px 10px 18px #888888;
+}
+
+.topRightName {
+  font-size: x-large;
+  font-family: 'Yellowtail', cursive;
 }
 
 .Mid {
   display: flex;
   align-items: center;
   background-color: #f5c050;
-  padding-top: 2px;
+  padding-top: 7px;
   padding-left: 20px;
-  padding-bottom: 2px;
+  padding-bottom: 7px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
   border-bottom-right-radius: 7px;
@@ -103,6 +105,12 @@ li {
   display: grid;
   column-gap: .6%;
   /* background-color: #E0EEF8; */
+}
+
+h5 {
+  font-size: larger;
+  font-family: 'Yellowtail', cursive;
+  /* font-family: 'Open Sans', sans-serif; */
 }
 
 .Bottom-Left {
@@ -149,42 +157,10 @@ li {
   padding: 1em;
 }
 
-#icon {
-  border-radius: 50%;
-  box-shadow: 5px 10px 18px #888888;
-}
-.icon-1 {
-  border-radius: 50%;
-  padding: .5em;
-  height: 6em;
-  width: 6em;
-  box-shadow: 5px 10px 18px #888888;
-}
-.icon-2 {
-  border-radius: 50%;
-  padding: .5em;
-  height: 6em;
-  width: 6em;
-  box-shadow: 5px 10px 18px #888888;
-}
-.icon-3 {
-  border-radius: 50%;
-  padding: .5em;
-  height: 6em;
-  width: 6em;
-  box-shadow: 5px 10px 18px #888888;
-}
-.icon-4 {
-  border-radius: 50%;
-  padding: .5em;
-  height: 6em;
-  width: 6em;
-  box-shadow: 5px 10px 18px #888888;
-}
-
 .Section-Title {
-  font-size: x-large;
-  text-align: center;
+  color: #172C49;
+  font-family: 'Yellowtail', cursive;
+  font-size: xx-large;
 }
 
 .Bottom {
