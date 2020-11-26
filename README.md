@@ -1,7 +1,7 @@
 # FitLit Project
 > A project by [Estelle Staffieri](https://github.com/Estaffieri) and [Christopher Castaneula](https://github.com/Chriscastanuela)</br>
 
-![gif-of-app](assets/giphy.gif)</br>
+![gif](https://user-images.githubusercontent.com/62910433/100301906-7154ae00-2f56-11eb-96ca-83d97f96b3d7.gif)</br>
 
 The details of this project are outline in [this project spec](http://frontend.turing.io/projects/fitlit.html).
 
